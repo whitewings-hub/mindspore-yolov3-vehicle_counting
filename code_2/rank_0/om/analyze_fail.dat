@@ -1,0 +1,1135 @@
+# [No.1] construct_wrapper.0
+# In file /home/whitewings/yolov3_gpu_new/src/yolo.py(386)/    def construct(self, x, input_shape):/
+funcgraph fg_0(
+        %para1 : Tensor(F32)[1, 3, 416, 416]    # x
+        , %para2 : Tensor(F32)[2]    # input_shape
+        , %para3 : Ref[Tensor(F32)][51]    # feature_map.backblock0.conv6.bias
+        , %para4 : Ref[Tensor(F32)][51, 1024, 1, 1]    # feature_map.backblock0.conv6.weight
+        , %para5 : Ref[Tensor(F32)][51]    # feature_map.backblock1.conv6.bias
+        , %para6 : Ref[Tensor(F32)][51, 512, 1, 1]    # feature_map.backblock1.conv6.weight
+        , %para7 : Ref[Tensor(F32)][51]    # feature_map.backblock2.conv6.bias
+        , %para8 : Ref[Tensor(F32)][51, 256, 1, 1]    # feature_map.backblock2.conv6.weight
+        , %para9 : Ref[Tensor(F32)][512, 1024, 1, 1]    # feature_map.backblock0.conv4.0.weight
+        , %para10 : Ref[Tensor(F32)][256, 512, 1, 1]    # feature_map.backblock1.conv4.0.weight
+        , %para11 : Ref[Tensor(F32)][128, 256, 1, 1]    # feature_map.backblock2.conv4.0.weight
+        , %para12 : Ref[Tensor(F32)][1024, 512, 3, 3]    # feature_map.backblock0.conv3.0.weight
+        , %para13 : Ref[Tensor(F32)][1024, 512, 3, 3]    # feature_map.backblock0.conv5.0.weight
+        , %para14 : Ref[Tensor(F32)][512, 256, 3, 3]    # feature_map.backblock1.conv3.0.weight
+        , %para15 : Ref[Tensor(F32)][512, 256, 3, 3]    # feature_map.backblock1.conv5.0.weight
+        , %para16 : Ref[Tensor(F32)][256, 512, 1, 1]    # feature_map.conv1.0.weight
+        , %para17 : Ref[Tensor(F32)][256, 128, 3, 3]    # feature_map.backblock2.conv3.0.weight
+        , %para18 : Ref[Tensor(F32)][256, 128, 3, 3]    # feature_map.backblock2.conv5.0.weight
+        , %para19 : Ref[Tensor(F32)][128, 256, 1, 1]    # feature_map.conv2.0.weight
+        , %para20 : Ref[Tensor(F32)][512, 1024, 1, 1]    # feature_map.backblock0.conv2.0.weight
+        , %para21 : Ref[Tensor(F32)][256, 512, 1, 1]    # feature_map.backblock1.conv2.0.weight
+        , %para22 : Ref[Tensor(F32)][128, 256, 1, 1]    # feature_map.backblock2.conv2.0.weight
+        , %para23 : Ref[Tensor(F32)][1024, 512, 3, 3]    # feature_map.backblock0.conv1.0.weight
+        , %para24 : Ref[Tensor(F32)][512, 256, 3, 3]    # feature_map.backblock1.conv1.0.weight
+        , %para25 : Ref[Tensor(F32)][256, 128, 3, 3]    # feature_map.backblock2.conv1.0.weight
+        , %para26 : Ref[Tensor(F32)][512]    # feature_map.backblock0.conv4.1.gamma
+        , %para27 : Ref[Tensor(F32)][512]    # feature_map.backblock0.conv4.1.beta
+        , %para28 : Ref[Tensor(F32)][512]    # feature_map.backblock0.conv4.1.moving_mean
+        , %para29 : Ref[Tensor(F32)][512]    # feature_map.backblock0.conv4.1.moving_variance
+        , %para30 : Ref[Tensor(F32)][512, 1024, 1, 1]    # feature_map.backblock0.conv0.0.weight
+        , %para31 : Ref[Tensor(F32)][256]    # feature_map.backblock1.conv4.1.gamma
+        , %para32 : Ref[Tensor(F32)][256]    # feature_map.backblock1.conv4.1.beta
+        , %para33 : Ref[Tensor(F32)][256]    # feature_map.backblock1.conv4.1.moving_mean
+        , %para34 : Ref[Tensor(F32)][256]    # feature_map.backblock1.conv4.1.moving_variance
+        , %para35 : Ref[Tensor(F32)][256, 768, 1, 1]    # feature_map.backblock1.conv0.0.weight
+        , %para36 : Ref[Tensor(F32)][128]    # feature_map.backblock2.conv4.1.gamma
+        , %para37 : Ref[Tensor(F32)][128]    # feature_map.backblock2.conv4.1.beta
+        , %para38 : Ref[Tensor(F32)][128]    # feature_map.backblock2.conv4.1.moving_mean
+        , %para39 : Ref[Tensor(F32)][128]    # feature_map.backblock2.conv4.1.moving_variance
+        , %para40 : Ref[Tensor(F32)][128, 384, 1, 1]    # feature_map.backblock2.conv0.0.weight
+        , %para41 : Ref[Tensor(F32)][1024]    # feature_map.backblock0.conv3.1.gamma
+        , %para42 : Ref[Tensor(F32)][1024]    # feature_map.backblock0.conv3.1.beta
+        , %para43 : Ref[Tensor(F32)][1024]    # feature_map.backblock0.conv3.1.moving_mean
+        , %para44 : Ref[Tensor(F32)][1024]    # feature_map.backblock0.conv3.1.moving_variance
+        , %para45 : Ref[Tensor(F32)][1024]    # feature_map.backblock0.conv5.1.gamma
+        , %para46 : Ref[Tensor(F32)][1024]    # feature_map.backblock0.conv5.1.beta
+        , %para47 : Ref[Tensor(F32)][1024]    # feature_map.backblock0.conv5.1.moving_mean
+        , %para48 : Ref[Tensor(F32)][1024]    # feature_map.backblock0.conv5.1.moving_variance
+        , %para49 : Ref[Tensor(F32)][512]    # feature_map.backblock1.conv3.1.gamma
+        , %para50 : Ref[Tensor(F32)][512]    # feature_map.backblock1.conv3.1.beta
+        , %para51 : Ref[Tensor(F32)][512]    # feature_map.backblock1.conv3.1.moving_mean
+        , %para52 : Ref[Tensor(F32)][512]    # feature_map.backblock1.conv3.1.moving_variance
+        , %para53 : Ref[Tensor(F32)][512]    # feature_map.backblock1.conv5.1.gamma
+        , %para54 : Ref[Tensor(F32)][512]    # feature_map.backblock1.conv5.1.beta
+        , %para55 : Ref[Tensor(F32)][512]    # feature_map.backblock1.conv5.1.moving_mean
+        , %para56 : Ref[Tensor(F32)][512]    # feature_map.backblock1.conv5.1.moving_variance
+        , %para57 : Ref[Tensor(F32)][256]    # feature_map.conv1.1.gamma
+        , %para58 : Ref[Tensor(F32)][256]    # feature_map.conv1.1.beta
+        , %para59 : Ref[Tensor(F32)][256]    # feature_map.conv1.1.moving_mean
+        , %para60 : Ref[Tensor(F32)][256]    # feature_map.conv1.1.moving_variance
+        , %para61 : Ref[Tensor(F32)][256]    # feature_map.backblock2.conv3.1.gamma
+        , %para62 : Ref[Tensor(F32)][256]    # feature_map.backblock2.conv3.1.beta
+        , %para63 : Ref[Tensor(F32)][256]    # feature_map.backblock2.conv3.1.moving_mean
+        , %para64 : Ref[Tensor(F32)][256]    # feature_map.backblock2.conv3.1.moving_variance
+        , %para65 : Ref[Tensor(F32)][256]    # feature_map.backblock2.conv5.1.gamma
+        , %para66 : Ref[Tensor(F32)][256]    # feature_map.backblock2.conv5.1.beta
+        , %para67 : Ref[Tensor(F32)][256]    # feature_map.backblock2.conv5.1.moving_mean
+        , %para68 : Ref[Tensor(F32)][256]    # feature_map.backblock2.conv5.1.moving_variance
+        , %para69 : Ref[Tensor(F32)][128]    # feature_map.conv2.1.gamma
+        , %para70 : Ref[Tensor(F32)][128]    # feature_map.conv2.1.beta
+        , %para71 : Ref[Tensor(F32)][128]    # feature_map.conv2.1.moving_mean
+        , %para72 : Ref[Tensor(F32)][128]    # feature_map.conv2.1.moving_variance
+        , %para73 : Ref[Tensor(F32)][512]    # feature_map.backblock0.conv2.1.gamma
+        , %para74 : Ref[Tensor(F32)][512]    # feature_map.backblock0.conv2.1.beta
+        , %para75 : Ref[Tensor(F32)][512]    # feature_map.backblock0.conv2.1.moving_mean
+        , %para76 : Ref[Tensor(F32)][512]    # feature_map.backblock0.conv2.1.moving_variance
+        , %para77 : Ref[Tensor(F32)][256, 128, 3, 3]    # feature_map.backbone.conv3.0.weight
+        , %para78 : Ref[Tensor(F32)][512, 256, 3, 3]    # feature_map.backbone.conv4.0.weight
+        , %para79 : Ref[Tensor(F32)][1024, 512, 3, 3]    # feature_map.backbone.conv5.0.weight
+        , %para80 : Ref[Tensor(F32)][256]    # feature_map.backblock1.conv2.1.gamma
+        , %para81 : Ref[Tensor(F32)][256]    # feature_map.backblock1.conv2.1.beta
+        , %para82 : Ref[Tensor(F32)][256]    # feature_map.backblock1.conv2.1.moving_mean
+        , %para83 : Ref[Tensor(F32)][256]    # feature_map.backblock1.conv2.1.moving_variance
+        , %para84 : Ref[Tensor(F32)][128]    # feature_map.backblock2.conv2.1.gamma
+        , %para85 : Ref[Tensor(F32)][128]    # feature_map.backblock2.conv2.1.beta
+        , %para86 : Ref[Tensor(F32)][128]    # feature_map.backblock2.conv2.1.moving_mean
+        , %para87 : Ref[Tensor(F32)][128]    # feature_map.backblock2.conv2.1.moving_variance
+        , %para88 : Ref[Tensor(F32)][1024]    # feature_map.backblock0.conv1.1.gamma
+        , %para89 : Ref[Tensor(F32)][1024]    # feature_map.backblock0.conv1.1.beta
+        , %para90 : Ref[Tensor(F32)][1024]    # feature_map.backblock0.conv1.1.moving_mean
+        , %para91 : Ref[Tensor(F32)][1024]    # feature_map.backblock0.conv1.1.moving_variance
+        , %para92 : Ref[Tensor(F32)][512]    # feature_map.backblock1.conv1.1.gamma
+        , %para93 : Ref[Tensor(F32)][512]    # feature_map.backblock1.conv1.1.beta
+        , %para94 : Ref[Tensor(F32)][512]    # feature_map.backblock1.conv1.1.moving_mean
+        , %para95 : Ref[Tensor(F32)][512]    # feature_map.backblock1.conv1.1.moving_variance
+        , %para96 : Ref[Tensor(F32)][256]    # feature_map.backblock2.conv1.1.gamma
+        , %para97 : Ref[Tensor(F32)][256]    # feature_map.backblock2.conv1.1.beta
+        , %para98 : Ref[Tensor(F32)][256]    # feature_map.backblock2.conv1.1.moving_mean
+        , %para99 : Ref[Tensor(F32)][256]    # feature_map.backblock2.conv1.1.moving_variance
+        , %para100 : Ref[Tensor(F32)][512]    # feature_map.backblock0.conv0.1.gamma
+        , %para101 : Ref[Tensor(F32)][512]    # feature_map.backblock0.conv0.1.beta
+        , %para102 : Ref[Tensor(F32)][512]    # feature_map.backblock0.conv0.1.moving_mean
+        , %para103 : Ref[Tensor(F32)][512]    # feature_map.backblock0.conv0.1.moving_variance
+        , %para104 : Ref[Tensor(F32)][128, 64, 3, 3]    # feature_map.backbone.conv2.0.weight
+        , %para105 : Ref[Tensor(F32)][256]    # feature_map.backblock1.conv0.1.gamma
+        , %para106 : Ref[Tensor(F32)][256]    # feature_map.backblock1.conv0.1.beta
+        , %para107 : Ref[Tensor(F32)][256]    # feature_map.backblock1.conv0.1.moving_mean
+        , %para108 : Ref[Tensor(F32)][256]    # feature_map.backblock1.conv0.1.moving_variance
+        , %para109 : Ref[Tensor(F32)][128]    # feature_map.backblock2.conv0.1.gamma
+        , %para110 : Ref[Tensor(F32)][128]    # feature_map.backblock2.conv0.1.beta
+        , %para111 : Ref[Tensor(F32)][128]    # feature_map.backblock2.conv0.1.moving_mean
+        , %para112 : Ref[Tensor(F32)][128]    # feature_map.backblock2.conv0.1.moving_variance
+        , %para113 : Ref[Tensor(F32)][256]    # feature_map.backbone.conv3.1.gamma
+        , %para114 : Ref[Tensor(F32)][256]    # feature_map.backbone.conv3.1.beta
+        , %para115 : Ref[Tensor(F32)][256]    # feature_map.backbone.conv3.1.moving_mean
+        , %para116 : Ref[Tensor(F32)][256]    # feature_map.backbone.conv3.1.moving_variance
+        , %para117 : Ref[Tensor(F32)][64, 32, 3, 3]    # feature_map.backbone.conv1.0.weight
+        , %para118 : Ref[Tensor(F32)][512]    # feature_map.backbone.conv4.1.gamma
+        , %para119 : Ref[Tensor(F32)][512]    # feature_map.backbone.conv4.1.beta
+        , %para120 : Ref[Tensor(F32)][512]    # feature_map.backbone.conv4.1.moving_mean
+        , %para121 : Ref[Tensor(F32)][512]    # feature_map.backbone.conv4.1.moving_variance
+        , %para122 : Ref[Tensor(F32)][1024]    # feature_map.backbone.conv5.1.gamma
+        , %para123 : Ref[Tensor(F32)][1024]    # feature_map.backbone.conv5.1.beta
+        , %para124 : Ref[Tensor(F32)][1024]    # feature_map.backbone.conv5.1.moving_mean
+        , %para125 : Ref[Tensor(F32)][1024]    # feature_map.backbone.conv5.1.moving_variance
+        , %para126 : Ref[Tensor(F32)][32, 3, 3, 3]    # feature_map.backbone.conv0.0.weight
+        , %para127 : Ref[Tensor(F32)][128]    # feature_map.backbone.conv2.1.gamma
+        , %para128 : Ref[Tensor(F32)][128]    # feature_map.backbone.conv2.1.beta
+        , %para129 : Ref[Tensor(F32)][128]    # feature_map.backbone.conv2.1.moving_mean
+        , %para130 : Ref[Tensor(F32)][128]    # feature_map.backbone.conv2.1.moving_variance
+        , %para131 : Ref[Tensor(F32)][256, 128, 3, 3]    # feature_map.backbone.layer3.0.conv2.0.weight
+        , %para132 : Ref[Tensor(F32)][256, 128, 3, 3]    # feature_map.backbone.layer3.1.conv2.0.weight
+        , %para133 : Ref[Tensor(F32)][256, 128, 3, 3]    # feature_map.backbone.layer3.2.conv2.0.weight
+        , %para134 : Ref[Tensor(F32)][256, 128, 3, 3]    # feature_map.backbone.layer3.3.conv2.0.weight
+        , %para135 : Ref[Tensor(F32)][256, 128, 3, 3]    # feature_map.backbone.layer3.4.conv2.0.weight
+        , %para136 : Ref[Tensor(F32)][256, 128, 3, 3]    # feature_map.backbone.layer3.5.conv2.0.weight
+        , %para137 : Ref[Tensor(F32)][256, 128, 3, 3]    # feature_map.backbone.layer3.6.conv2.0.weight
+        , %para138 : Ref[Tensor(F32)][256, 128, 3, 3]    # feature_map.backbone.layer3.7.conv2.0.weight
+        , %para139 : Ref[Tensor(F32)][64]    # feature_map.backbone.conv1.1.gamma
+        , %para140 : Ref[Tensor(F32)][64]    # feature_map.backbone.conv1.1.beta
+        , %para141 : Ref[Tensor(F32)][64]    # feature_map.backbone.conv1.1.moving_mean
+        , %para142 : Ref[Tensor(F32)][64]    # feature_map.backbone.conv1.1.moving_variance
+        , %para143 : Ref[Tensor(F32)][512, 256, 3, 3]    # feature_map.backbone.layer4.0.conv2.0.weight
+        , %para144 : Ref[Tensor(F32)][512, 256, 3, 3]    # feature_map.backbone.layer4.1.conv2.0.weight
+        , %para145 : Ref[Tensor(F32)][512, 256, 3, 3]    # feature_map.backbone.layer4.2.conv2.0.weight
+        , %para146 : Ref[Tensor(F32)][512, 256, 3, 3]    # feature_map.backbone.layer4.3.conv2.0.weight
+        , %para147 : Ref[Tensor(F32)][512, 256, 3, 3]    # feature_map.backbone.layer4.4.conv2.0.weight
+        , %para148 : Ref[Tensor(F32)][512, 256, 3, 3]    # feature_map.backbone.layer4.5.conv2.0.weight
+        , %para149 : Ref[Tensor(F32)][512, 256, 3, 3]    # feature_map.backbone.layer4.6.conv2.0.weight
+        , %para150 : Ref[Tensor(F32)][512, 256, 3, 3]    # feature_map.backbone.layer4.7.conv2.0.weight
+        , %para151 : Ref[Tensor(F32)][1024, 512, 3, 3]    # feature_map.backbone.layer5.0.conv2.0.weight
+        , %para152 : Ref[Tensor(F32)][1024, 512, 3, 3]    # feature_map.backbone.layer5.1.conv2.0.weight
+        , %para153 : Ref[Tensor(F32)][1024, 512, 3, 3]    # feature_map.backbone.layer5.2.conv2.0.weight
+        , %para154 : Ref[Tensor(F32)][1024, 512, 3, 3]    # feature_map.backbone.layer5.3.conv2.0.weight
+        , %para155 : Ref[Tensor(F32)][128, 256, 1, 1]    # feature_map.backbone.layer3.0.conv1.0.weight
+        , %para156 : Ref[Tensor(F32)][128, 256, 1, 1]    # feature_map.backbone.layer3.1.conv1.0.weight
+        , %para157 : Ref[Tensor(F32)][128, 256, 1, 1]    # feature_map.backbone.layer3.2.conv1.0.weight
+        , %para158 : Ref[Tensor(F32)][128, 256, 1, 1]    # feature_map.backbone.layer3.3.conv1.0.weight
+        , %para159 : Ref[Tensor(F32)][128, 256, 1, 1]    # feature_map.backbone.layer3.4.conv1.0.weight
+        , %para160 : Ref[Tensor(F32)][128, 256, 1, 1]    # feature_map.backbone.layer3.5.conv1.0.weight
+        , %para161 : Ref[Tensor(F32)][128, 256, 1, 1]    # feature_map.backbone.layer3.6.conv1.0.weight
+        , %para162 : Ref[Tensor(F32)][128, 256, 1, 1]    # feature_map.backbone.layer3.7.conv1.0.weight
+        , %para163 : Ref[Tensor(F32)][32]    # feature_map.backbone.conv0.1.gamma
+        , %para164 : Ref[Tensor(F32)][32]    # feature_map.backbone.conv0.1.beta
+        , %para165 : Ref[Tensor(F32)][32]    # feature_map.backbone.conv0.1.moving_mean
+        , %para166 : Ref[Tensor(F32)][32]    # feature_map.backbone.conv0.1.moving_variance
+        , %para167 : Ref[Tensor(F32)][256, 512, 1, 1]    # feature_map.backbone.layer4.0.conv1.0.weight
+        , %para168 : Ref[Tensor(F32)][256, 512, 1, 1]    # feature_map.backbone.layer4.1.conv1.0.weight
+        , %para169 : Ref[Tensor(F32)][256, 512, 1, 1]    # feature_map.backbone.layer4.2.conv1.0.weight
+        , %para170 : Ref[Tensor(F32)][256, 512, 1, 1]    # feature_map.backbone.layer4.3.conv1.0.weight
+        , %para171 : Ref[Tensor(F32)][256, 512, 1, 1]    # feature_map.backbone.layer4.4.conv1.0.weight
+        , %para172 : Ref[Tensor(F32)][256, 512, 1, 1]    # feature_map.backbone.layer4.5.conv1.0.weight
+        , %para173 : Ref[Tensor(F32)][256, 512, 1, 1]    # feature_map.backbone.layer4.6.conv1.0.weight
+        , %para174 : Ref[Tensor(F32)][256, 512, 1, 1]    # feature_map.backbone.layer4.7.conv1.0.weight
+        , %para175 : Ref[Tensor(F32)][512, 1024, 1, 1]    # feature_map.backbone.layer5.0.conv1.0.weight
+        , %para176 : Ref[Tensor(F32)][512, 1024, 1, 1]    # feature_map.backbone.layer5.1.conv1.0.weight
+        , %para177 : Ref[Tensor(F32)][512, 1024, 1, 1]    # feature_map.backbone.layer5.2.conv1.0.weight
+        , %para178 : Ref[Tensor(F32)][512, 1024, 1, 1]    # feature_map.backbone.layer5.3.conv1.0.weight
+        , %para179 : Ref[Tensor(F32)][128, 64, 3, 3]    # feature_map.backbone.layer2.0.conv2.0.weight
+        , %para180 : Ref[Tensor(F32)][128, 64, 3, 3]    # feature_map.backbone.layer2.1.conv2.0.weight
+        , %para181 : Ref[Tensor(F32)][64, 128, 1, 1]    # feature_map.backbone.layer2.0.conv1.0.weight
+        , %para182 : Ref[Tensor(F32)][64, 128, 1, 1]    # feature_map.backbone.layer2.1.conv1.0.weight
+        , %para183 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer3.0.conv2.1.gamma
+        , %para184 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer3.0.conv2.1.beta
+        , %para185 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer3.0.conv2.1.moving_mean
+        , %para186 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer3.0.conv2.1.moving_variance
+        , %para187 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer3.1.conv2.1.gamma
+        , %para188 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer3.1.conv2.1.beta
+        , %para189 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer3.1.conv2.1.moving_mean
+        , %para190 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer3.1.conv2.1.moving_variance
+        , %para191 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer3.2.conv2.1.gamma
+        , %para192 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer3.2.conv2.1.beta
+        , %para193 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer3.2.conv2.1.moving_mean
+        , %para194 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer3.2.conv2.1.moving_variance
+        , %para195 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer3.3.conv2.1.gamma
+        , %para196 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer3.3.conv2.1.beta
+        , %para197 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer3.3.conv2.1.moving_mean
+        , %para198 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer3.3.conv2.1.moving_variance
+        , %para199 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer3.4.conv2.1.gamma
+        , %para200 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer3.4.conv2.1.beta
+        , %para201 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer3.4.conv2.1.moving_mean
+        , %para202 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer3.4.conv2.1.moving_variance
+        , %para203 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer3.5.conv2.1.gamma
+        , %para204 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer3.5.conv2.1.beta
+        , %para205 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer3.5.conv2.1.moving_mean
+        , %para206 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer3.5.conv2.1.moving_variance
+        , %para207 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer3.6.conv2.1.gamma
+        , %para208 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer3.6.conv2.1.beta
+        , %para209 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer3.6.conv2.1.moving_mean
+        , %para210 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer3.6.conv2.1.moving_variance
+        , %para211 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer3.7.conv2.1.gamma
+        , %para212 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer3.7.conv2.1.beta
+        , %para213 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer3.7.conv2.1.moving_mean
+        , %para214 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer3.7.conv2.1.moving_variance
+        , %para215 : Ref[Tensor(F32)][64, 32, 3, 3]    # feature_map.backbone.layer1.0.conv2.0.weight
+        , %para216 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer4.0.conv2.1.gamma
+        , %para217 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer4.0.conv2.1.beta
+        , %para218 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer4.0.conv2.1.moving_mean
+        , %para219 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer4.0.conv2.1.moving_variance
+        , %para220 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer4.1.conv2.1.gamma
+        , %para221 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer4.1.conv2.1.beta
+        , %para222 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer4.1.conv2.1.moving_mean
+        , %para223 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer4.1.conv2.1.moving_variance
+        , %para224 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer4.2.conv2.1.gamma
+        , %para225 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer4.2.conv2.1.beta
+        , %para226 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer4.2.conv2.1.moving_mean
+        , %para227 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer4.2.conv2.1.moving_variance
+        , %para228 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer4.3.conv2.1.gamma
+        , %para229 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer4.3.conv2.1.beta
+        , %para230 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer4.3.conv2.1.moving_mean
+        , %para231 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer4.3.conv2.1.moving_variance
+        , %para232 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer4.4.conv2.1.gamma
+        , %para233 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer4.4.conv2.1.beta
+        , %para234 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer4.4.conv2.1.moving_mean
+        , %para235 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer4.4.conv2.1.moving_variance
+        , %para236 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer4.5.conv2.1.gamma
+        , %para237 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer4.5.conv2.1.beta
+        , %para238 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer4.5.conv2.1.moving_mean
+        , %para239 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer4.5.conv2.1.moving_variance
+        , %para240 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer4.6.conv2.1.gamma
+        , %para241 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer4.6.conv2.1.beta
+        , %para242 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer4.6.conv2.1.moving_mean
+        , %para243 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer4.6.conv2.1.moving_variance
+        , %para244 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer4.7.conv2.1.gamma
+        , %para245 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer4.7.conv2.1.beta
+        , %para246 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer4.7.conv2.1.moving_mean
+        , %para247 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer4.7.conv2.1.moving_variance
+        , %para248 : Ref[Tensor(F32)][1024]    # feature_map.backbone.layer5.0.conv2.1.gamma
+        , %para249 : Ref[Tensor(F32)][1024]    # feature_map.backbone.layer5.0.conv2.1.beta
+        , %para250 : Ref[Tensor(F32)][1024]    # feature_map.backbone.layer5.0.conv2.1.moving_mean
+        , %para251 : Ref[Tensor(F32)][1024]    # feature_map.backbone.layer5.0.conv2.1.moving_variance
+        , %para252 : Ref[Tensor(F32)][1024]    # feature_map.backbone.layer5.1.conv2.1.gamma
+        , %para253 : Ref[Tensor(F32)][1024]    # feature_map.backbone.layer5.1.conv2.1.beta
+        , %para254 : Ref[Tensor(F32)][1024]    # feature_map.backbone.layer5.1.conv2.1.moving_mean
+        , %para255 : Ref[Tensor(F32)][1024]    # feature_map.backbone.layer5.1.conv2.1.moving_variance
+        , %para256 : Ref[Tensor(F32)][1024]    # feature_map.backbone.layer5.2.conv2.1.gamma
+        , %para257 : Ref[Tensor(F32)][1024]    # feature_map.backbone.layer5.2.conv2.1.beta
+        , %para258 : Ref[Tensor(F32)][1024]    # feature_map.backbone.layer5.2.conv2.1.moving_mean
+        , %para259 : Ref[Tensor(F32)][1024]    # feature_map.backbone.layer5.2.conv2.1.moving_variance
+        , %para260 : Ref[Tensor(F32)][1024]    # feature_map.backbone.layer5.3.conv2.1.gamma
+        , %para261 : Ref[Tensor(F32)][1024]    # feature_map.backbone.layer5.3.conv2.1.beta
+        , %para262 : Ref[Tensor(F32)][1024]    # feature_map.backbone.layer5.3.conv2.1.moving_mean
+        , %para263 : Ref[Tensor(F32)][1024]    # feature_map.backbone.layer5.3.conv2.1.moving_variance
+        , %para264 : Ref[Tensor(F32)][128]    # feature_map.backbone.layer3.0.conv1.1.gamma
+        , %para265 : Ref[Tensor(F32)][128]    # feature_map.backbone.layer3.0.conv1.1.beta
+        , %para266 : Ref[Tensor(F32)][128]    # feature_map.backbone.layer3.0.conv1.1.moving_mean
+        , %para267 : Ref[Tensor(F32)][128]    # feature_map.backbone.layer3.0.conv1.1.moving_variance
+        , %para268 : Ref[Tensor(F32)][128]    # feature_map.backbone.layer3.1.conv1.1.gamma
+        , %para269 : Ref[Tensor(F32)][128]    # feature_map.backbone.layer3.1.conv1.1.beta
+        , %para270 : Ref[Tensor(F32)][128]    # feature_map.backbone.layer3.1.conv1.1.moving_mean
+        , %para271 : Ref[Tensor(F32)][128]    # feature_map.backbone.layer3.1.conv1.1.moving_variance
+        , %para272 : Ref[Tensor(F32)][128]    # feature_map.backbone.layer3.2.conv1.1.gamma
+        , %para273 : Ref[Tensor(F32)][128]    # feature_map.backbone.layer3.2.conv1.1.beta
+        , %para274 : Ref[Tensor(F32)][128]    # feature_map.backbone.layer3.2.conv1.1.moving_mean
+        , %para275 : Ref[Tensor(F32)][128]    # feature_map.backbone.layer3.2.conv1.1.moving_variance
+        , %para276 : Ref[Tensor(F32)][128]    # feature_map.backbone.layer3.3.conv1.1.gamma
+        , %para277 : Ref[Tensor(F32)][128]    # feature_map.backbone.layer3.3.conv1.1.beta
+        , %para278 : Ref[Tensor(F32)][128]    # feature_map.backbone.layer3.3.conv1.1.moving_mean
+        , %para279 : Ref[Tensor(F32)][128]    # feature_map.backbone.layer3.3.conv1.1.moving_variance
+        , %para280 : Ref[Tensor(F32)][128]    # feature_map.backbone.layer3.4.conv1.1.gamma
+        , %para281 : Ref[Tensor(F32)][128]    # feature_map.backbone.layer3.4.conv1.1.beta
+        , %para282 : Ref[Tensor(F32)][128]    # feature_map.backbone.layer3.4.conv1.1.moving_mean
+        , %para283 : Ref[Tensor(F32)][128]    # feature_map.backbone.layer3.4.conv1.1.moving_variance
+        , %para284 : Ref[Tensor(F32)][128]    # feature_map.backbone.layer3.5.conv1.1.gamma
+        , %para285 : Ref[Tensor(F32)][128]    # feature_map.backbone.layer3.5.conv1.1.beta
+        , %para286 : Ref[Tensor(F32)][128]    # feature_map.backbone.layer3.5.conv1.1.moving_mean
+        , %para287 : Ref[Tensor(F32)][128]    # feature_map.backbone.layer3.5.conv1.1.moving_variance
+        , %para288 : Ref[Tensor(F32)][128]    # feature_map.backbone.layer3.6.conv1.1.gamma
+        , %para289 : Ref[Tensor(F32)][128]    # feature_map.backbone.layer3.6.conv1.1.beta
+        , %para290 : Ref[Tensor(F32)][128]    # feature_map.backbone.layer3.6.conv1.1.moving_mean
+        , %para291 : Ref[Tensor(F32)][128]    # feature_map.backbone.layer3.6.conv1.1.moving_variance
+        , %para292 : Ref[Tensor(F32)][128]    # feature_map.backbone.layer3.7.conv1.1.gamma
+        , %para293 : Ref[Tensor(F32)][128]    # feature_map.backbone.layer3.7.conv1.1.beta
+        , %para294 : Ref[Tensor(F32)][128]    # feature_map.backbone.layer3.7.conv1.1.moving_mean
+        , %para295 : Ref[Tensor(F32)][128]    # feature_map.backbone.layer3.7.conv1.1.moving_variance
+        , %para296 : Ref[Tensor(F32)][32, 64, 1, 1]    # feature_map.backbone.layer1.0.conv1.0.weight
+        , %para297 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer4.0.conv1.1.gamma
+        , %para298 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer4.0.conv1.1.beta
+        , %para299 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer4.0.conv1.1.moving_mean
+        , %para300 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer4.0.conv1.1.moving_variance
+        , %para301 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer4.1.conv1.1.gamma
+        , %para302 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer4.1.conv1.1.beta
+        , %para303 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer4.1.conv1.1.moving_mean
+        , %para304 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer4.1.conv1.1.moving_variance
+        , %para305 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer4.2.conv1.1.gamma
+        , %para306 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer4.2.conv1.1.beta
+        , %para307 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer4.2.conv1.1.moving_mean
+        , %para308 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer4.2.conv1.1.moving_variance
+        , %para309 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer4.3.conv1.1.gamma
+        , %para310 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer4.3.conv1.1.beta
+        , %para311 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer4.3.conv1.1.moving_mean
+        , %para312 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer4.3.conv1.1.moving_variance
+        , %para313 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer4.4.conv1.1.gamma
+        , %para314 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer4.4.conv1.1.beta
+        , %para315 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer4.4.conv1.1.moving_mean
+        , %para316 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer4.4.conv1.1.moving_variance
+        , %para317 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer4.5.conv1.1.gamma
+        , %para318 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer4.5.conv1.1.beta
+        , %para319 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer4.5.conv1.1.moving_mean
+        , %para320 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer4.5.conv1.1.moving_variance
+        , %para321 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer4.6.conv1.1.gamma
+        , %para322 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer4.6.conv1.1.beta
+        , %para323 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer4.6.conv1.1.moving_mean
+        , %para324 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer4.6.conv1.1.moving_variance
+        , %para325 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer4.7.conv1.1.gamma
+        , %para326 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer4.7.conv1.1.beta
+        , %para327 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer4.7.conv1.1.moving_mean
+        , %para328 : Ref[Tensor(F32)][256]    # feature_map.backbone.layer4.7.conv1.1.moving_variance
+        , %para329 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer5.0.conv1.1.gamma
+        , %para330 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer5.0.conv1.1.beta
+        , %para331 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer5.0.conv1.1.moving_mean
+        , %para332 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer5.0.conv1.1.moving_variance
+        , %para333 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer5.1.conv1.1.gamma
+        , %para334 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer5.1.conv1.1.beta
+        , %para335 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer5.1.conv1.1.moving_mean
+        , %para336 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer5.1.conv1.1.moving_variance
+        , %para337 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer5.2.conv1.1.gamma
+        , %para338 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer5.2.conv1.1.beta
+        , %para339 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer5.2.conv1.1.moving_mean
+        , %para340 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer5.2.conv1.1.moving_variance
+        , %para341 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer5.3.conv1.1.gamma
+        , %para342 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer5.3.conv1.1.beta
+        , %para343 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer5.3.conv1.1.moving_mean
+        , %para344 : Ref[Tensor(F32)][512]    # feature_map.backbone.layer5.3.conv1.1.moving_variance
+        , %para345 : Ref[Tensor(F32)][128]    # feature_map.backbone.layer2.0.conv2.1.gamma
+        , %para346 : Ref[Tensor(F32)][128]    # feature_map.backbone.layer2.0.conv2.1.beta
+        , %para347 : Ref[Tensor(F32)][128]    # feature_map.backbone.layer2.0.conv2.1.moving_mean
+        , %para348 : Ref[Tensor(F32)][128]    # feature_map.backbone.layer2.0.conv2.1.moving_variance
+        , %para349 : Ref[Tensor(F32)][128]    # feature_map.backbone.layer2.1.conv2.1.gamma
+        , %para350 : Ref[Tensor(F32)][128]    # feature_map.backbone.layer2.1.conv2.1.beta
+        , %para351 : Ref[Tensor(F32)][128]    # feature_map.backbone.layer2.1.conv2.1.moving_mean
+        , %para352 : Ref[Tensor(F32)][128]    # feature_map.backbone.layer2.1.conv2.1.moving_variance
+        , %para353 : Ref[Tensor(F32)][64]    # feature_map.backbone.layer2.0.conv1.1.gamma
+        , %para354 : Ref[Tensor(F32)][64]    # feature_map.backbone.layer2.0.conv1.1.beta
+        , %para355 : Ref[Tensor(F32)][64]    # feature_map.backbone.layer2.0.conv1.1.moving_mean
+        , %para356 : Ref[Tensor(F32)][64]    # feature_map.backbone.layer2.0.conv1.1.moving_variance
+        , %para357 : Ref[Tensor(F32)][64]    # feature_map.backbone.layer2.1.conv1.1.gamma
+        , %para358 : Ref[Tensor(F32)][64]    # feature_map.backbone.layer2.1.conv1.1.beta
+        , %para359 : Ref[Tensor(F32)][64]    # feature_map.backbone.layer2.1.conv1.1.moving_mean
+        , %para360 : Ref[Tensor(F32)][64]    # feature_map.backbone.layer2.1.conv1.1.moving_variance
+        , %para361 : Ref[Tensor(F32)][64]    # feature_map.backbone.layer1.0.conv2.1.gamma
+        , %para362 : Ref[Tensor(F32)][64]    # feature_map.backbone.layer1.0.conv2.1.beta
+        , %para363 : Ref[Tensor(F32)][64]    # feature_map.backbone.layer1.0.conv2.1.moving_mean
+        , %para364 : Ref[Tensor(F32)][64]    # feature_map.backbone.layer1.0.conv2.1.moving_variance
+        , %para365 : Ref[Tensor(F32)][32]    # feature_map.backbone.layer1.0.conv1.1.gamma
+        , %para366 : Ref[Tensor(F32)][32]    # feature_map.backbone.layer1.0.conv1.1.beta
+        , %para367 : Ref[Tensor(F32)][32]    # feature_map.backbone.layer1.0.conv1.1.moving_mean
+        , %para368 : Ref[Tensor(F32)][32]    # feature_map.backbone.layer1.0.conv1.1.moving_variance
+    ) {
+
+#------------------------> 0
+    %1 = FuncGraph::fg_32(%para1, %para2)    #(Tensor(F32)[1, 3, 416, 416], Tensor(F32)[2])    # fg_32=construct.32 #scope: Default
+      # #[CNode]46
+    Primitive::Return{prim_type=1}(%1)    #(Undefined) #scope: Default
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(392)/        return output_big, output_me, output_small/#[CNode]47
+}
+# order:
+#   1: construct_wrapper.0:[CNode]46{[0]: ValueNode<FuncGraph> construct.32, [1]: x, [2]: input_shape}
+#   2: construct_wrapper.0:[CNode]47{[0]: ValueNode<Primitive> Return, [1]: [CNode]46}
+
+
+# [No.2] construct.32
+# In file /home/whitewings/yolov3_gpu_new/src/yolo.py(386)/    def construct(self, x, input_shape):/
+funcgraph fg_32[fg_0](
+        %para369 : Tensor(F32)[1, 3, 416, 416]    # x
+        , %para370 : Tensor(F32)[2]    # input_shape
+    ) {
+    %1 : Tuple[Tensor(F32)*3] = FuncGraph::fg_48(%para369)    #(Tensor(F32)[1, 3, 416, 416])    # fg_48=construct.48 #scope: Default
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(387)/        big_object_output, medium_object_output, small_object_output = self.feature_map(x)/#[CNode]49
+    %2 : Tensor(F32)[1, 51, 13, 13] = DoSignaturePrimitive::S-Prim-getitem{prim_type=1}(%1, I64(0))    #(Tuple[Tensor(F32)*3], I64) #scope: Default
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(387)/        big_object_output, medium_object_output, small_object_output = self.feature_map(x)/#big_object_output
+
+#------------------------> 1
+    %3 = FuncGraph::fg_33(%2, %para370)    #(Tensor(F32)[1, 51, 13, 13], Tensor(F32)[2])    # fg_33=construct.33 #scope: Default
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(388)/        output_big = self.detect_1(big_object_output, input_shape)/#output_big
+    %4 = DoSignaturePrimitive::S-Prim-getitem{prim_type=1}(%1, I64(1))    #(Tuple[Tensor(F32)*3], Undefined) #scope: Default
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(387)/        big_object_output, medium_object_output, small_object_output = self.feature_map(x)/#medium_object_output
+    %5 = FuncGraph::fg_50(%4, %para370)    #(Undefined, Tensor(F32)[2])    # fg_50=construct.50 #scope: Default
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(389)/        output_me = self.detect_2(medium_object_output, input_shape)/#output_me
+    %6 = DoSignaturePrimitive::S-Prim-getitem{prim_type=1}(%1, I64(2))    #(Tuple[Tensor(F32)*3], Undefined) #scope: Default
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(387)/        big_object_output, medium_object_output, small_object_output = self.feature_map(x)/#small_object_output
+    %7 = FuncGraph::fg_51(%6, %para370)    #(Undefined, Tensor(F32)[2])    # fg_51=construct.51 #scope: Default
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(390)/        output_small = self.detect_3(small_object_output, input_shape)/#output_small
+    %8 = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}(%3, %5, %7)    #(Undefined, Undefined, Undefined) #scope: Default
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(392)/        return output_big, output_me, output_small/#[CNode]52
+    Primitive::Return{prim_type=1}(%8)    #(Undefined) #scope: Default
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(392)/        return output_big, output_me, output_small/#[CNode]53
+}
+# order:
+#   1: construct.32:[CNode]49{[0]: ValueNode<FuncGraph> construct.48, [1]: x}
+#   2: construct.32:big_object_output{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: [CNode]49, [2]: ValueNode<Int64Imm> 0}
+#   3: construct.32:medium_object_output{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: [CNode]49, [2]: ValueNode<Int64Imm> 1}
+#   4: construct.32:small_object_output{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: [CNode]49, [2]: ValueNode<Int64Imm> 2}
+#   5: construct.32:output_big{[0]: ValueNode<FuncGraph> construct.33, [1]: big_object_output, [2]: input_shape}
+#   6: construct.32:output_me{[0]: ValueNode<FuncGraph> construct.50, [1]: medium_object_output, [2]: input_shape}
+#   7: construct.32:output_small{[0]: ValueNode<FuncGraph> construct.51, [1]: small_object_output, [2]: input_shape}
+#   8: construct.32:[CNode]52{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: output_big, [2]: output_me, [3]: output_small}
+#   9: construct.32:[CNode]53{[0]: ValueNode<Primitive> Return, [1]: [CNode]52}
+
+
+# [No.3] construct.33
+# In file /home/whitewings/yolov3_gpu_new/src/yolo.py(201)/    def construct(self, x, input_shape):/
+funcgraph fg_33(
+        %para371 : Tensor(F32)[1, 51, 13, 13]    # x
+        , %para372 : Tensor(F32)[2]    # input_shape
+    ) {
+    %1 : Bool = FuncGraph::fg_54(Bool(0))    #(Bool)    # fg_54=bool_.54 #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(237)/        if self.conf_training:/#55
+    %2 : Func = Primitive::Switch{prim_type=1}(%1, FuncGraph::fg_56, FuncGraph::fg_34)    #(Bool, Func, Func)    # fg_56=✓construct.56, fg_34=✗construct.34 #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(237)/        if self.conf_training:/#[CNode]57
+
+#------------------------> 2
+    %3 = %2() #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(237)/        if self.conf_training:/#[CNode]58
+    Primitive::Return{prim_type=1}(%3)    #(Undefined) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(237)/        if self.conf_training:/#[CNode]59
+}
+# order:
+#   1: construct.33:[CNode]60{[0]: ValueNode<ClassType> class 'mindspore.ops.operations.array_ops.Shape'}
+#   2: construct.33:[CNode]61{[0]: [CNode]60, [1]: x}
+#   3: construct.33:num_batch{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: [CNode]61, [2]: ValueNode<Int64Imm> 0}
+#   4: construct.33:[CNode]62{[0]: ValueNode<ClassType> class 'mindspore.ops.operations.array_ops.Shape'}
+#   5: construct.33:[CNode]63{[0]: [CNode]62, [1]: x}
+#   6: construct.33:[CNode]64{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_slice, [1]: ValueNode<Int64Imm> 2, [2]: ValueNode<Int64Imm> 4, [3]: ValueNode<None> None}
+#   7: construct.33:grid_size{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: [CNode]63, [2]: [CNode]64}
+#   8: construct.33:[CNode]65{[0]: ValueNode<ClassType> class 'mindspore.ops.operations.array_ops.Reshape'}
+#   9: construct.33:[CNode]66{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: grid_size, [2]: ValueNode<Int64Imm> 0}
+#  10: construct.33:[CNode]67{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: grid_size, [2]: ValueNode<Int64Imm> 1}
+#  11: construct.33:[CNode]68{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: num_batch, [2]: ValueNode<Int64Imm> 3, [3]: ValueNode<Int64Imm> 17, [4]: [CNode]66, [5]: [CNode]67}
+#  12: construct.33:prediction{[0]: [CNode]65, [1]: x, [2]: [CNode]68}
+#  13: construct.33:[CNode]69{[0]: ValueNode<ClassType> class 'mindspore.ops.operations.array_ops.Transpose'}
+#  14: construct.33:[CNode]70{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: ValueNode<Int64Imm> 0, [2]: ValueNode<Int64Imm> 3, [3]: ValueNode<Int64Imm> 4, [4]: ValueNode<Int64Imm> 1, [5]: ValueNode<Int64Imm> 2}
+#  15: construct.33:prediction{[0]: [CNode]69, [1]: prediction, [2]: [CNode]70}
+#  16: construct.33:[CNode]71{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: grid_size, [2]: ValueNode<Int64Imm> 1}
+#  17: construct.33:range_x{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_range, [1]: [CNode]71}
+#  18: construct.33:[CNode]72{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: grid_size, [2]: ValueNode<Int64Imm> 0}
+#  19: construct.33:range_y{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_range, [1]: [CNode]72}
+#  20: construct.33:[CNode]73{[0]: ValueNode<ClassType> class 'mindspore.ops.operations.array_ops.Cast'}
+#  21: construct.33:[CNode]74{[0]: ValueNode<DoSignaturePrimitive> S-Prim-TupleToArray, [1]: range_x}
+#  22: construct.33:grid_x{[0]: [CNode]73, [1]: [CNode]74, [2]: ValueNode<Float> Float32}
+#  23: construct.33:[CNode]75{[0]: ValueNode<ClassType> class 'mindspore.ops.operations.array_ops.Cast'}
+#  24: construct.33:[CNode]76{[0]: ValueNode<DoSignaturePrimitive> S-Prim-TupleToArray, [1]: range_y}
+#  25: construct.33:grid_y{[0]: [CNode]75, [1]: [CNode]76, [2]: ValueNode<Float> Float32}
+#  26: construct.33:[CNode]77{[0]: ValueNode<DoSignaturePrimitive> S-Prim-negative, [1]: ValueNode<Int64Imm> 1}
+#  27: construct.33:[CNode]78{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: ValueNode<Int64Imm> 1, [2]: ValueNode<Int64Imm> 1, [3]: [CNode]77, [4]: ValueNode<Int64Imm> 1, [5]: ValueNode<Int64Imm> 1}
+#  28: construct.33:[CNode]79{[0]: ValueNode<DoSignaturePrimitive> S-Prim-Reshape, [1]: grid_x, [2]: [CNode]78}
+#  29: construct.33:[CNode]80{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: grid_size, [2]: ValueNode<Int64Imm> 0}
+#  30: construct.33:[CNode]81{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: ValueNode<Int64Imm> 1, [2]: [CNode]80, [3]: ValueNode<Int64Imm> 1, [4]: ValueNode<Int64Imm> 1, [5]: ValueNode<Int64Imm> 1}
+#  31: construct.33:grid_x{[0]: ValueNode<DoSignaturePrimitive> S-Prim-Tile, [1]: [CNode]79, [2]: [CNode]81}
+#  32: construct.33:[CNode]82{[0]: ValueNode<DoSignaturePrimitive> S-Prim-negative, [1]: ValueNode<Int64Imm> 1}
+#  33: construct.33:[CNode]83{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: ValueNode<Int64Imm> 1, [2]: [CNode]82, [3]: ValueNode<Int64Imm> 1, [4]: ValueNode<Int64Imm> 1, [5]: ValueNode<Int64Imm> 1}
+#  34: construct.33:[CNode]84{[0]: ValueNode<DoSignaturePrimitive> S-Prim-Reshape, [1]: grid_y, [2]: [CNode]83}
+#  35: construct.33:[CNode]85{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: grid_size, [2]: ValueNode<Int64Imm> 1}
+#  36: construct.33:[CNode]86{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: ValueNode<Int64Imm> 1, [2]: ValueNode<Int64Imm> 1, [3]: [CNode]85, [4]: ValueNode<Int64Imm> 1, [5]: ValueNode<Int64Imm> 1}
+#  37: construct.33:grid_y{[0]: ValueNode<DoSignaturePrimitive> S-Prim-Tile, [1]: [CNode]84, [2]: [CNode]86}
+#  38: construct.33:[CNode]87{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: grid_x, [2]: grid_y}
+#  39: construct.33:grid{[0]: ValueNode<DoSignaturePrimitive> S-Prim-Concat, [1]: [CNode]87}
+#  40: construct.33:[CNode]88{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_slice, [1]: ValueNode<None> None, [2]: ValueNode<None> None, [3]: ValueNode<None> None}
+#  41: construct.33:[CNode]89{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_slice, [1]: ValueNode<None> None, [2]: ValueNode<None> None, [3]: ValueNode<None> None}
+#  42: construct.33:[CNode]90{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_slice, [1]: ValueNode<None> None, [2]: ValueNode<None> None, [3]: ValueNode<None> None}
+#  43: construct.33:[CNode]91{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_slice, [1]: ValueNode<None> None, [2]: ValueNode<None> None, [3]: ValueNode<None> None}
+#  44: construct.33:[CNode]92{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_slice, [1]: ValueNode<None> None, [2]: ValueNode<Int64Imm> 2, [3]: ValueNode<None> None}
+#  45: construct.33:[CNode]93{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: [CNode]88, [2]: [CNode]89, [3]: [CNode]90, [4]: [CNode]91, [5]: [CNode]92}
+#  46: construct.33:box_xy{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: prediction, [2]: [CNode]93}
+#  47: construct.33:[CNode]94{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_slice, [1]: ValueNode<None> None, [2]: ValueNode<None> None, [3]: ValueNode<None> None}
+#  48: construct.33:[CNode]95{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_slice, [1]: ValueNode<None> None, [2]: ValueNode<None> None, [3]: ValueNode<None> None}
+#  49: construct.33:[CNode]96{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_slice, [1]: ValueNode<None> None, [2]: ValueNode<None> None, [3]: ValueNode<None> None}
+#  50: construct.33:[CNode]97{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_slice, [1]: ValueNode<None> None, [2]: ValueNode<None> None, [3]: ValueNode<None> None}
+#  51: construct.33:[CNode]98{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_slice, [1]: ValueNode<Int64Imm> 2, [2]: ValueNode<Int64Imm> 4, [3]: ValueNode<None> None}
+#  52: construct.33:[CNode]99{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: [CNode]94, [2]: [CNode]95, [3]: [CNode]96, [4]: [CNode]97, [5]: [CNode]98}
+#  53: construct.33:box_wh{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: prediction, [2]: [CNode]99}
+#  54: construct.33:[CNode]100{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_slice, [1]: ValueNode<None> None, [2]: ValueNode<None> None, [3]: ValueNode<None> None}
+#  55: construct.33:[CNode]101{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_slice, [1]: ValueNode<None> None, [2]: ValueNode<None> None, [3]: ValueNode<None> None}
+#  56: construct.33:[CNode]102{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_slice, [1]: ValueNode<None> None, [2]: ValueNode<None> None, [3]: ValueNode<None> None}
+#  57: construct.33:[CNode]103{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_slice, [1]: ValueNode<None> None, [2]: ValueNode<None> None, [3]: ValueNode<None> None}
+#  58: construct.33:[CNode]104{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_slice, [1]: ValueNode<Int64Imm> 4, [2]: ValueNode<Int64Imm> 5, [3]: ValueNode<None> None}
+#  59: construct.33:[CNode]105{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: [CNode]100, [2]: [CNode]101, [3]: [CNode]102, [4]: [CNode]103, [5]: [CNode]104}
+#  60: construct.33:box_confidence{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: prediction, [2]: [CNode]105}
+#  61: construct.33:[CNode]106{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_slice, [1]: ValueNode<None> None, [2]: ValueNode<None> None, [3]: ValueNode<None> None}
+#  62: construct.33:[CNode]107{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_slice, [1]: ValueNode<None> None, [2]: ValueNode<None> None, [3]: ValueNode<None> None}
+#  63: construct.33:[CNode]108{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_slice, [1]: ValueNode<None> None, [2]: ValueNode<None> None, [3]: ValueNode<None> None}
+#  64: construct.33:[CNode]109{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_slice, [1]: ValueNode<None> None, [2]: ValueNode<None> None, [3]: ValueNode<None> None}
+#  65: construct.33:[CNode]110{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_slice, [1]: ValueNode<Int64Imm> 5, [2]: ValueNode<None> None, [3]: ValueNode<None> None}
+#  66: construct.33:[CNode]111{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: [CNode]106, [2]: [CNode]107, [3]: [CNode]108, [4]: [CNode]109, [5]: [CNode]110}
+#  67: construct.33:box_probs{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: prediction, [2]: [CNode]111}
+#  68: construct.33:[CNode]112{[0]: ValueNode<FuncGraph> construct.113, [1]: box_xy}
+#  69: construct.33:[CNode]114{[0]: ValueNode<DoSignaturePrimitive> S-Prim-add, [1]: [CNode]112, [2]: grid}
+#  70: construct.33:[CNode]115{[0]: ValueNode<ClassType> class 'mindspore.ops.operations.array_ops.Cast'}
+#  71: construct.33:[CNode]116{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: grid_size, [2]: ValueNode<Int64Imm> 1}
+#  72: construct.33:[CNode]117{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: grid_size, [2]: ValueNode<Int64Imm> 0}
+#  73: construct.33:[CNode]118{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: [CNode]116, [2]: [CNode]117}
+#  74: construct.33:[CNode]119{[0]: ValueNode<DoSignaturePrimitive> S-Prim-TupleToArray, [1]: [CNode]118}
+#  75: construct.33:[CNode]120{[0]: [CNode]115, [1]: [CNode]119, [2]: ValueNode<Float> Float32}
+#  76: construct.33:box_xy{[0]: ValueNode<DoSignaturePrimitive> S-Prim-div, [1]: [CNode]114, [2]: [CNode]120}
+#  77: construct.33:[CNode]121{[0]: ValueNode<ClassType> class 'mindspore.ops.operations.math_ops.Exp'}
+#  78: construct.33:[CNode]122{[0]: [CNode]121, [1]: box_wh}
+#  79: construct.33:[CNode]123{[0]: ValueNode<DoSignaturePrimitive> S-Prim-mul, [1]: [CNode]122, [2]: ValueNode<Tensor> Tensor(shape=[3, 2], dtype=Float32, value=
+[[ 1.16000000e+02  9.00000000e+01]
+ [ 1.56000000e+02  1.98000000e+02]
+ [ 3.73000000e+02  3.26000000e+02]])}
+#  80: construct.33:box_wh{[0]: ValueNode<DoSignaturePrimitive> S-Prim-div, [1]: [CNode]123, [2]: input_shape}
+#  81: construct.33:box_confidence{[0]: ValueNode<FuncGraph> construct.113, [1]: box_confidence}
+#  82: construct.33:box_probs{[0]: ValueNode<FuncGraph> construct.113, [1]: box_probs}
+#  83: construct.33:55{[0]: ValueNode<FuncGraph> bool_.54, [1]: ValueNode<BoolImm> false}
+#  84: construct.33:[CNode]57{[0]: ValueNode<Primitive> Switch, [1]: 55, [2]: ValueNode<FuncGraph> ✓construct.56, [3]: ValueNode<FuncGraph> ✗construct.34}
+#  85: construct.33:[CNode]58{[0]: [CNode]57}
+#  86: construct.33:[CNode]59{[0]: ValueNode<Primitive> Return, [1]: [CNode]58}
+
+
+# [No.4] ✗construct.34
+# In file /home/whitewings/yolov3_gpu_new/src/yolo.py(237)/        if self.conf_training:/
+funcgraph fg_34[fg_33](
+) {
+
+#------------------------> 3
+    %1 = FuncGraph::fg_35()    # fg_35=↓construct.35 #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(237)/        if self.conf_training:/#[CNode]124
+    Primitive::Return{prim_type=1}(%1)    #(Undefined) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(237)/        if self.conf_training:/#[CNode]125
+}
+# order:
+#   1: ✗construct.34:[CNode]124{[0]: ValueNode<FuncGraph> ↓construct.35}
+#   2: ✗construct.34:[CNode]125{[0]: ValueNode<Primitive> Return, [1]: [CNode]124}
+
+
+# [No.5] ↓construct.35
+# In file /home/whitewings/yolov3_gpu_new/src/yolo.py(237)/        if self.conf_training:/
+funcgraph fg_35[fg_33](
+) {
+    %1 : $(construct.33):Func = ClassType() #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(211)/        prediction = P.Transpose()(prediction, (0, 3, 4, 1, 2))/#[CNode]69
+    %2 : $(construct.33):Func = ClassType() #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(206)/        prediction = P.Reshape()(x, (num_batch,/#[CNode]65
+    %3 : $(construct.33):Func = ClassType() #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(202)/        num_batch = P.Shape()(x)[0]/#[CNode]60
+    %4 : $(construct.33):Tuple[I64*4] = %3(%para371)    #(Tensor(F32)[1, 51, 13, 13]) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(202)/        num_batch = P.Shape()(x)[0]/#[CNode]61
+    %5 : $(construct.33):I64 = DoSignaturePrimitive::S-Prim-getitem{prim_type=1}(%4, I64(0))    #(Tuple[I64*4], I64) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(202)/        num_batch = P.Shape()(x)[0]/#num_batch
+    %6 : $(construct.33):Func = ClassType() #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(203)/        grid_size = P.Shape()(x)[2:4]/#[CNode]62
+    %7 : $(construct.33):Tuple[I64*4] = %6(%para371)    #(Tensor(F32)[1, 51, 13, 13]) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(203)/        grid_size = P.Shape()(x)[2:4]/#[CNode]63
+    %8 : $(construct.33):Slice[Int64 : Int64 : kMetaTypeNone] = DoSignaturePrimitive::S-Prim-make_slice{prim_type=1}(I64(2), I64(4), None)    #(I64, I64, NoneType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(0)/#[CNode]64
+    %9 : $(construct.33):Tuple[I64*2] = DoSignaturePrimitive::S-Prim-getitem{prim_type=1}(%7, %8)    #(Tuple[I64*4], Slice[Int64 : Int64 : kMetaTypeNone]) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(203)/        grid_size = P.Shape()(x)[2:4]/#grid_size
+    %10 : $(construct.33):I64 = DoSignaturePrimitive::S-Prim-getitem{prim_type=1}(%9, I64(0))    #(Tuple[I64*2], I64) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(209)/                                     grid_size[0],/#[CNode]66
+    %11 : $(construct.33):I64 = DoSignaturePrimitive::S-Prim-getitem{prim_type=1}(%9, I64(1))    #(Tuple[I64*2], I64) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(210)/                                     grid_size[1]))/#[CNode]67
+    %12 : $(construct.33):Tuple[I64*5] = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}(%5, I64(3), I64(17), %10, %11)    #(I64, I64, I64, I64, I64) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(206)/        prediction = P.Reshape()(x, (num_batch,/#[CNode]68
+    %13 : $(construct.33):Tensor(F32)[1, 3, 17, 13, 13] = %2(%para371, %12)    #(Tensor(F32)[1, 51, 13, 13], Tuple[I64*5]) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(206)/        prediction = P.Reshape()(x, (num_batch,/#prediction
+    %14 : $(construct.33):Tuple[I64*5] = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}(I64(0), I64(3), I64(4), I64(1), I64(2))    #(I64, I64, I64, I64, I64) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(211)/        prediction = P.Transpose()(prediction, (0, 3, 4, 1, 2))/#[CNode]70
+    %15 : $(construct.33):Tensor(F32)[1, 13, 13, 3, 17] = %1(%13, %14)    #(Tensor(F32)[1, 3, 17, 13, 13], Tuple[I64*5]) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(211)/        prediction = P.Transpose()(prediction, (0, 3, 4, 1, 2))/#prediction
+    %16 : $(construct.33):Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone] = DoSignaturePrimitive::S-Prim-make_slice{prim_type=1}(None, None, None)    #(NoneType, NoneType, NoneType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(0)/#[CNode]88
+    %17 : $(construct.33):Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone] = DoSignaturePrimitive::S-Prim-make_slice{prim_type=1}(None, None, None)    #(NoneType, NoneType, NoneType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(0)/#[CNode]89
+    %18 : $(construct.33):Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone] = DoSignaturePrimitive::S-Prim-make_slice{prim_type=1}(None, None, None)    #(NoneType, NoneType, NoneType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(0)/#[CNode]90
+    %19 : $(construct.33):Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone] = DoSignaturePrimitive::S-Prim-make_slice{prim_type=1}(None, None, None)    #(NoneType, NoneType, NoneType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(0)/#[CNode]91
+    %20 : $(construct.33):Slice[kMetaTypeNone : Int64 : kMetaTypeNone] = DoSignaturePrimitive::S-Prim-make_slice{prim_type=1}(None, I64(2), None)    #(NoneType, I64, NoneType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(0)/#[CNode]92
+    %21 : $(construct.33):Tuple[Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone]*4,Slice[kMetaTypeNone : Int64 : kMetaTypeNone]] = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}(%16, %17, %18, %19, %20)    #(Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone], Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone], Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone], Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone], Slice[kMetaTypeNone : Int64 : kMetaTypeNone]) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(0)/#[CNode]93
+    %22 : $(construct.33):Tensor(F32)[1, 13, 13, 3, 2] = DoSignaturePrimitive::S-Prim-getitem{prim_type=1}(%15, %21)    #(Tensor(F32)[1, 13, 13, 3, 17], Tuple[Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone]*4,Slice[kMetaTypeNone : Int64 : kMetaTypeNone]]) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(224)/        box_xy = prediction[:, :, :, :, :2]/#box_xy
+    %23 : $(construct.33):Tensor(F32)[1, 13, 13, 3, 2] = FuncGraph::fg_113(%22)    #(Tensor(F32)[1, 13, 13, 3, 2])    # fg_113=construct.113 #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(231)/        box_xy = (self.sigmoid(box_xy) + grid) / P.Cast()(F.tuple_to_array((grid_size[1], grid_size[0])), ms.float32)/#[CNode]112
+    %24 : $(construct.33):Func = ClassType() #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(215)/        grid_x = P.Cast()(F.tuple_to_array(range_x), ms.float32)/#[CNode]73
+    %25 : $(construct.33):I64 = DoSignaturePrimitive::S-Prim-getitem{prim_type=1}(%9, I64(1))    #(Tuple[I64*2], I64) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(213)/        range_x = range(grid_size[1])/#[CNode]71
+    %26 : $(construct.33):Tuple[I64*13] = DoSignaturePrimitive::S-Prim-make_range{prim_type=1}(%25)    #(I64) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(213)/        range_x = range(grid_size[1])/#range_x
+    %27 : $(construct.33):Tensor(I32)[13] = DoSignaturePrimitive::S-Prim-TupleToArray{prim_type=1}(%26)    #(Tuple[I64*13]) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(215)/        grid_x = P.Cast()(F.tuple_to_array(range_x), ms.float32)/#[CNode]74
+    %28 : $(construct.33):Tensor(F32)[13] = %24(%27, F32)    #(Tensor(I32)[13], TypeType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(215)/        grid_x = P.Cast()(F.tuple_to_array(range_x), ms.float32)/#grid_x
+    %29 : $(construct.33):I64 = DoSignaturePrimitive::S-Prim-negative{prim_type=1}(I64(1))    #(I64) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(219)/        grid_x = self.tile(self.reshape(grid_x, (1, 1, -1, 1, 1)), (1, grid_size[0], 1, 1, 1))/#[CNode]77
+    %30 : $(construct.33):Tuple[I64*5] = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}(I64(1), I64(1), %29, I64(1), I64(1))    #(I64, I64, I64, I64, I64) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(219)/        grid_x = self.tile(self.reshape(grid_x, (1, 1, -1, 1, 1)), (1, grid_size[0], 1, 1, 1))/#[CNode]78
+    %31 : $(construct.33):Tensor(F32)[1, 1, 13, 1, 1] = DoSignaturePrimitive::S-Prim-Reshape{prim_type=1}[input_names=["tensor", "shape"], output_names=["output"]](%28, %30)    #(Tensor(F32)[13], Tuple[I64*5]) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(219)/        grid_x = self.tile(self.reshape(grid_x, (1, 1, -1, 1, 1)), (1, grid_size[0], 1, 1, 1))/#[CNode]79
+    %32 : $(construct.33):I64 = DoSignaturePrimitive::S-Prim-getitem{prim_type=1}(%9, I64(0))    #(Tuple[I64*2], I64) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(219)/        grid_x = self.tile(self.reshape(grid_x, (1, 1, -1, 1, 1)), (1, grid_size[0], 1, 1, 1))/#[CNode]80
+    %33 : $(construct.33):Tuple[I64*5] = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}(I64(1), %32, I64(1), I64(1), I64(1))    #(I64, I64, I64, I64, I64) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(219)/        grid_x = self.tile(self.reshape(grid_x, (1, 1, -1, 1, 1)), (1, grid_size[0], 1, 1, 1))/#[CNode]81
+    %34 : $(construct.33):Tensor(F32)[1, 13, 13, 1, 1] = DoSignaturePrimitive::S-Prim-Tile{prim_type=1}[input_names=["x", "multiples"], output_names=["output"]](%31, %33)    #(Tensor(F32)[1, 1, 13, 1, 1], Tuple[I64*5]) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(219)/        grid_x = self.tile(self.reshape(grid_x, (1, 1, -1, 1, 1)), (1, grid_size[0], 1, 1, 1))/#grid_x
+    %35 : $(construct.33):Func = ClassType() #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(216)/        grid_y = P.Cast()(F.tuple_to_array(range_y), ms.float32)/#[CNode]75
+    %36 : $(construct.33):I64 = DoSignaturePrimitive::S-Prim-getitem{prim_type=1}(%9, I64(0))    #(Tuple[I64*2], I64) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(214)/        range_y = range(grid_size[0])/#[CNode]72
+    %37 : $(construct.33):Tuple[I64*13] = DoSignaturePrimitive::S-Prim-make_range{prim_type=1}(%36)    #(I64) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(214)/        range_y = range(grid_size[0])/#range_y
+    %38 : $(construct.33):Tensor(I32)[13] = DoSignaturePrimitive::S-Prim-TupleToArray{prim_type=1}(%37)    #(Tuple[I64*13]) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(216)/        grid_y = P.Cast()(F.tuple_to_array(range_y), ms.float32)/#[CNode]76
+    %39 : $(construct.33):Tensor(F32)[13] = %35(%38, F32)    #(Tensor(I32)[13], TypeType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(216)/        grid_y = P.Cast()(F.tuple_to_array(range_y), ms.float32)/#grid_y
+    %40 : $(construct.33):I64 = DoSignaturePrimitive::S-Prim-negative{prim_type=1}(I64(1))    #(I64) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(220)/        grid_y = self.tile(self.reshape(grid_y, (1, -1, 1, 1, 1)), (1, 1, grid_size[1], 1, 1))/#[CNode]82
+    %41 : $(construct.33):Tuple[I64*5] = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}(I64(1), %40, I64(1), I64(1), I64(1))    #(I64, I64, I64, I64, I64) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(220)/        grid_y = self.tile(self.reshape(grid_y, (1, -1, 1, 1, 1)), (1, 1, grid_size[1], 1, 1))/#[CNode]83
+    %42 : $(construct.33):Tensor(F32)[1, 13, 1, 1, 1] = DoSignaturePrimitive::S-Prim-Reshape{prim_type=1}[input_names=["tensor", "shape"], output_names=["output"]](%39, %41)    #(Tensor(F32)[13], Tuple[I64*5]) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(220)/        grid_y = self.tile(self.reshape(grid_y, (1, -1, 1, 1, 1)), (1, 1, grid_size[1], 1, 1))/#[CNode]84
+    %43 : $(construct.33):I64 = DoSignaturePrimitive::S-Prim-getitem{prim_type=1}(%9, I64(1))    #(Tuple[I64*2], I64) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(220)/        grid_y = self.tile(self.reshape(grid_y, (1, -1, 1, 1, 1)), (1, 1, grid_size[1], 1, 1))/#[CNode]85
+    %44 : $(construct.33):Tuple[I64*5] = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}(I64(1), I64(1), %43, I64(1), I64(1))    #(I64, I64, I64, I64, I64) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(220)/        grid_y = self.tile(self.reshape(grid_y, (1, -1, 1, 1, 1)), (1, 1, grid_size[1], 1, 1))/#[CNode]86
+    %45 : $(construct.33):Tensor(F32)[1, 13, 13, 1, 1] = DoSignaturePrimitive::S-Prim-Tile{prim_type=1}[input_names=["x", "multiples"], output_names=["output"]](%42, %44)    #(Tensor(F32)[1, 13, 1, 1, 1], Tuple[I64*5]) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(220)/        grid_y = self.tile(self.reshape(grid_y, (1, -1, 1, 1, 1)), (1, 1, grid_size[1], 1, 1))/#grid_y
+    %46 : $(construct.33):Tuple[Tensor(F32)*2] = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}(%34, %45)    #(Tensor(F32)[1, 13, 13, 1, 1], Tensor(F32)[1, 13, 13, 1, 1]) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(222)/        grid = self.concat((grid_x, grid_y))/#[CNode]87
+    %47 : $(construct.33):Tensor(F32)[1, 13, 13, 1, 2] = DoSignaturePrimitive::S-Prim-Concat{prim_type=1}[inputNums=I64(2), axis=I64(-1)](%46)    #(Tuple[Tensor(F32)*2]) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(222)/        grid = self.concat((grid_x, grid_y))/#grid
+    %48 : $(construct.33):Tensor(F32)[1, 13, 13, 3, 2] = DoSignaturePrimitive::S-Prim-add{prim_type=1}(%23, %47)    #(Tensor(F32)[1, 13, 13, 3, 2], Tensor(F32)[1, 13, 13, 1, 2]) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(231)/        box_xy = (self.sigmoid(box_xy) + grid) / P.Cast()(F.tuple_to_array((grid_size[1], grid_size[0])), ms.float32)/#[CNode]114
+    %49 : $(construct.33):Func = ClassType() #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(231)/        box_xy = (self.sigmoid(box_xy) + grid) / P.Cast()(F.tuple_to_array((grid_size[1], grid_size[0])), ms.float32)/#[CNode]115
+    %50 : $(construct.33):I64 = DoSignaturePrimitive::S-Prim-getitem{prim_type=1}(%9, I64(1))    #(Tuple[I64*2], I64) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(231)/        box_xy = (self.sigmoid(box_xy) + grid) / P.Cast()(F.tuple_to_array((grid_size[1], grid_size[0])), ms.float32)/#[CNode]116
+    %51 : $(construct.33):I64 = DoSignaturePrimitive::S-Prim-getitem{prim_type=1}(%9, I64(0))    #(Tuple[I64*2], I64) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(231)/        box_xy = (self.sigmoid(box_xy) + grid) / P.Cast()(F.tuple_to_array((grid_size[1], grid_size[0])), ms.float32)/#[CNode]117
+    %52 : $(construct.33):Tuple[I64*2] = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}(%50, %51)    #(I64, I64) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(231)/        box_xy = (self.sigmoid(box_xy) + grid) / P.Cast()(F.tuple_to_array((grid_size[1], grid_size[0])), ms.float32)/#[CNode]118
+    %53 : $(construct.33):Tensor(I32)[2] = DoSignaturePrimitive::S-Prim-TupleToArray{prim_type=1}(%52)    #(Tuple[I64*2]) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(231)/        box_xy = (self.sigmoid(box_xy) + grid) / P.Cast()(F.tuple_to_array((grid_size[1], grid_size[0])), ms.float32)/#[CNode]119
+    %54 : $(construct.33):Tensor(F32)[2] = %49(%53, F32)    #(Tensor(I32)[2], TypeType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(231)/        box_xy = (self.sigmoid(box_xy) + grid) / P.Cast()(F.tuple_to_array((grid_size[1], grid_size[0])), ms.float32)/#[CNode]120
+    %55 : $(construct.33):Tensor(F32)[1, 13, 13, 3, 2] = DoSignaturePrimitive::S-Prim-div{prim_type=1}(%48, %54)    #(Tensor(F32)[1, 13, 13, 3, 2], Tensor(F32)[2]) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(231)/        box_xy = (self.sigmoid(box_xy) + grid) / P.Cast()(F.tuple_to_array((grid_size[1], grid_size[0])), ms.float32)/#box_xy
+    %56 : $(construct.33):Func = ClassType() #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(233)/        box_wh = P.Exp()(box_wh) * self.anchors / input_shape/#[CNode]121
+    %57 : $(construct.33):Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone] = DoSignaturePrimitive::S-Prim-make_slice{prim_type=1}(None, None, None)    #(NoneType, NoneType, NoneType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(0)/#[CNode]94
+    %58 : $(construct.33):Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone] = DoSignaturePrimitive::S-Prim-make_slice{prim_type=1}(None, None, None)    #(NoneType, NoneType, NoneType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(0)/#[CNode]95
+    %59 : $(construct.33):Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone] = DoSignaturePrimitive::S-Prim-make_slice{prim_type=1}(None, None, None)    #(NoneType, NoneType, NoneType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(0)/#[CNode]96
+    %60 : $(construct.33):Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone] = DoSignaturePrimitive::S-Prim-make_slice{prim_type=1}(None, None, None)    #(NoneType, NoneType, NoneType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(0)/#[CNode]97
+    %61 : $(construct.33):Slice[Int64 : Int64 : kMetaTypeNone] = DoSignaturePrimitive::S-Prim-make_slice{prim_type=1}(I64(2), I64(4), None)    #(I64, I64, NoneType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(0)/#[CNode]98
+    %62 : $(construct.33):Tuple[Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone]*4,Slice[Int64 : Int64 : kMetaTypeNone]] = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}(%57, %58, %59, %60, %61)    #(Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone], Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone], Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone], Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone], Slice[Int64 : Int64 : kMetaTypeNone]) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(0)/#[CNode]99
+
+#------------------------> 4
+    %63 = $(construct.33):DoSignaturePrimitive::S-Prim-getitem{prim_type=1}(%15, %62)    #(Tensor(F32)[1, 13, 13, 3, 17], Tuple[Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone]*4,Slice[Int64 : Int64 : kMetaTypeNone]]) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(225)/        box_wh = prediction[:, :, :, :, 2:4]/#box_wh
+    %64 = $(construct.33):%56(%63)    #(Undefined) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(233)/        box_wh = P.Exp()(box_wh) * self.anchors / input_shape/#[CNode]122
+    %65 = $(construct.33):DoSignaturePrimitive::S-Prim-mul{prim_type=1}(%64, Tensor(43)[3, 2])    #(Undefined, Undefined) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(233)/        box_wh = P.Exp()(box_wh) * self.anchors / input_shape/#[CNode]123
+    %66 = $(construct.33):DoSignaturePrimitive::S-Prim-div{prim_type=1}(%65, %para372)    #(Undefined, Tensor(F32)[2]) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(233)/        box_wh = P.Exp()(box_wh) * self.anchors / input_shape/#box_wh
+    %67 = $(construct.33):DoSignaturePrimitive::S-Prim-make_slice{prim_type=1}(None, None, None)    #(Undefined, Undefined, Undefined) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(0)/#[CNode]100
+    %68 = $(construct.33):DoSignaturePrimitive::S-Prim-make_slice{prim_type=1}(None, None, None)    #(Undefined, Undefined, Undefined) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(0)/#[CNode]101
+    %69 = $(construct.33):DoSignaturePrimitive::S-Prim-make_slice{prim_type=1}(None, None, None)    #(Undefined, Undefined, Undefined) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(0)/#[CNode]102
+    %70 = $(construct.33):DoSignaturePrimitive::S-Prim-make_slice{prim_type=1}(None, None, None)    #(Undefined, Undefined, Undefined) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(0)/#[CNode]103
+    %71 = $(construct.33):DoSignaturePrimitive::S-Prim-make_slice{prim_type=1}(I64(4), I64(5), None)    #(Undefined, Undefined, Undefined) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(0)/#[CNode]104
+    %72 = $(construct.33):DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}(%67, %68, %69, %70, %71)    #(Undefined, Undefined, Undefined, Undefined, Undefined) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(0)/#[CNode]105
+    %73 = $(construct.33):DoSignaturePrimitive::S-Prim-getitem{prim_type=1}(%15, %72)    #(Tensor(F32)[1, 13, 13, 3, 17], Undefined) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(226)/        box_confidence = prediction[:, :, :, :, 4:5]/#box_confidence
+    %74 = $(construct.33):FuncGraph::fg_113(%73)    #(Undefined)    # fg_113=construct.113 #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(234)/        box_confidence = self.sigmoid(box_confidence)/#box_confidence
+    %75 = $(construct.33):DoSignaturePrimitive::S-Prim-make_slice{prim_type=1}(None, None, None)    #(Undefined, Undefined, Undefined) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(0)/#[CNode]106
+    %76 = $(construct.33):DoSignaturePrimitive::S-Prim-make_slice{prim_type=1}(None, None, None)    #(Undefined, Undefined, Undefined) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(0)/#[CNode]107
+    %77 = $(construct.33):DoSignaturePrimitive::S-Prim-make_slice{prim_type=1}(None, None, None)    #(Undefined, Undefined, Undefined) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(0)/#[CNode]108
+    %78 = $(construct.33):DoSignaturePrimitive::S-Prim-make_slice{prim_type=1}(None, None, None)    #(Undefined, Undefined, Undefined) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(0)/#[CNode]109
+    %79 = $(construct.33):DoSignaturePrimitive::S-Prim-make_slice{prim_type=1}(I64(5), None, None)    #(Undefined, Undefined, Undefined) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(0)/#[CNode]110
+    %80 = $(construct.33):DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}(%75, %76, %77, %78, %79)    #(Undefined, Undefined, Undefined, Undefined, Undefined) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(0)/#[CNode]111
+    %81 = $(construct.33):DoSignaturePrimitive::S-Prim-getitem{prim_type=1}(%15, %80)    #(Tensor(F32)[1, 13, 13, 3, 17], Undefined) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(227)/        box_probs = prediction[:, :, :, :, 5:]/#box_probs
+    %82 = $(construct.33):FuncGraph::fg_113(%81)    #(Undefined)    # fg_113=construct.113 #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(235)/        box_probs = self.sigmoid(box_probs)/#box_probs
+    %83 = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}(%55, %66, %74, %82)    #(Tensor(F32)[1, 13, 13, 3, 2], Undefined, Undefined, Undefined) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(239)/        return self.concat((box_xy, box_wh, box_confidence, box_probs))/#[CNode]126
+    %84 = DoSignaturePrimitive::S-Prim-Concat{prim_type=1}[inputNums=I64(2), axis=I64(-1)](%83)    #(Undefined) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(239)/        return self.concat((box_xy, box_wh, box_confidence, box_probs))/#[CNode]127
+    Primitive::Return{prim_type=1}(%84)    #(Undefined) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/yolov3_gpu_new/src/yolo.py(239)/        return self.concat((box_xy, box_wh, box_confidence, box_probs))/#[CNode]128
+}
+# order:
+#   1: ↓construct.35:[CNode]126{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: box_xy, [2]: box_wh, [3]: box_confidence, [4]: box_probs}
+#   2: ↓construct.35:[CNode]127{[0]: ValueNode<DoSignaturePrimitive> S-Prim-Concat, [1]: [CNode]126}
+#   3: ↓construct.35:[CNode]128{[0]: ValueNode<Primitive> Return, [1]: [CNode]127}
+
+
+# [No.6] _tensor_getitem_by_tuple.36
+# In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/getitem_impl.py(243)/def _tensor_getitem_by_tuple(data, tuple_index):/
+funcgraph fg_36(
+        %para373 : Tensor(F32)[1, 13, 13, 3, 17]    # data
+        , %para374 : Tuple[Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone]*4,Slice[Int64 : Int64 : kMetaTypeNone]]    # tuple_index
+    ) {
+    %1 : ExternalType = Primitive::resolve{prim_type=1}(NameSpace::SymbolStr, compile_utils)    #(ExternalType, ExternalType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/getitem_impl.py(254)/    return compile_utils.tensor_index_by_tuple(data, tuple_index)/#[CNode]129
+    %2 : Func = Primitive::getattr{prim_type=1}(%1, "tensor_index_by_tuple")    #(ExternalType, String) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/getitem_impl.py(254)/    return compile_utils.tensor_index_by_tuple(data, tuple_index)/#[CNode]130
+
+#------------------------> 5
+    %3 = %2(%para373, %para374)    #(Tensor(F32)[1, 13, 13, 3, 17], Tuple[Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone]*4,Slice[Int64 : Int64 : kMetaTypeNone]]) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/getitem_impl.py(254)/    return compile_utils.tensor_index_by_tuple(data, tuple_index)/#[CNode]131
+    Primitive::Return{prim_type=1}(%3)    #(Undefined) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/getitem_impl.py(254)/    return compile_utils.tensor_index_by_tuple(data, tuple_index)/#[CNode]132
+}
+# order:
+#   1: _tensor_getitem_by_tuple.133:[CNode]134{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> CommonOPS, [2]: ValueNode<Symbol> MakeTuple}
+#   2: _tensor_getitem_by_tuple.133:[CNode]135{[0]: [CNode]134, [1]: data, [2]: tuple_index}
+#   3: _tensor_getitem_by_tuple.36:[CNode]131{[0]: [CNode]130, [1]: data, [2]: tuple_index}
+#   4: _tensor_getitem_by_tuple.36:[CNode]132{[0]: ValueNode<Primitive> Return, [1]: [CNode]131}
+
+
+# [No.7] tensor_index_by_tuple.37
+# In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(356)/def tensor_index_by_tuple(data, tuple_index):/
+funcgraph fg_37(
+        %para375 : Tensor(F32)[1, 13, 13, 3, 17]    # data
+        , %para376 : Tuple[Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone]*4,Slice[Int64 : Int64 : kMetaTypeNone]]    # tuple_index
+    ) {
+    %1 : Func = Primitive::resolve{prim_type=1}(NameSpace::CommonOPS, bool_)    #(ExternalType, ExternalType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(358)/    if not tuple_index:/#[CNode]136
+    %2 : Func = Primitive::resolve{prim_type=1}(NameSpace::Ast, not_)    #(ExternalType, ExternalType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(0)/#[CNode]137
+    %3 : Bool = %2(%para376)    #(Tuple[Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone]*4,Slice[Int64 : Int64 : kMetaTypeNone]]) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(358)/    if not tuple_index:/#[CNode]136
+    %4 : Bool = %1(%3)    #(Bool) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(358)/    if not tuple_index:/#[CNode]136
+    %5 : Func = Primitive::Switch{prim_type=1}(%4, FuncGraph::fg_138, FuncGraph::fg_38)    #(Bool, Func, Func)    # fg_138=✓tensor_index_by_tuple.138, fg_38=✗tensor_index_by_tuple.38 #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(358)/    if not tuple_index:/#[CNode]139
+
+#------------------------> 6
+    %6 = %5() #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(358)/    if not tuple_index:/#[CNode]140
+    Primitive::Return{prim_type=1}(%6)    #(Undefined) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(358)/    if not tuple_index:/#[CNode]141
+}
+# order:
+#   1: tensor_index_by_tuple.37:[CNode]136{[0]: [CNode]137, [1]: tuple_index}
+#   2: tensor_index_by_tuple.37:[CNode]136{[0]: [CNode]136, [1]: [CNode]136}
+#   3: tensor_index_by_tuple.37:[CNode]139{[0]: ValueNode<Primitive> Switch, [1]: [CNode]136, [2]: ValueNode<FuncGraph> ✓tensor_index_by_tuple.138, [3]: ValueNode<FuncGraph> ✗tensor_index_by_tuple.38}
+#   4: tensor_index_by_tuple.37:[CNode]140{[0]: [CNode]139}
+#   5: tensor_index_by_tuple.37:[CNode]141{[0]: ValueNode<Primitive> Return, [1]: [CNode]140}
+#   6: tensor_index_by_tuple.37:[CNode]142{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> SymbolStr, [2]: ValueNode<Symbol> _tensor_getitem_by_tuple}
+
+
+# [No.8] ✗tensor_index_by_tuple.38
+# In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(358)/    if not tuple_index:/
+funcgraph fg_38[fg_37](
+) {
+
+#------------------------> 7
+    %1 = FuncGraph::fg_39()    # fg_39=↓tensor_index_by_tuple.39 #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(358)/    if not tuple_index:/#[CNode]143
+    Primitive::Return{prim_type=1}(%1)    #(Undefined) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(358)/    if not tuple_index:/#[CNode]144
+}
+# order:
+#   1: ✗tensor_index_by_tuple.38:[CNode]143{[0]: ValueNode<FuncGraph> ↓tensor_index_by_tuple.39}
+#   2: ✗tensor_index_by_tuple.38:[CNode]144{[0]: ValueNode<Primitive> Return, [1]: [CNode]143}
+
+
+# [No.9] ↓tensor_index_by_tuple.39
+# In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(358)/    if not tuple_index:/
+funcgraph fg_39[fg_37](
+) {
+    %1 : $(tensor_index_by_tuple.37):ExternalType = Primitive::resolve{prim_type=1}(NameSpace::SymbolStr, const_utils)    #(ExternalType, ExternalType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(361)/    op_name = const_utils.TENSOR_GETITEM/#[CNode]145
+    %2 : Func = Primitive::getattr{prim_type=1}(%1, "judge_data_dim")    #(ExternalType, String) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(366)/    const_utils.judge_data_dim(data.ndim, min_data_dim, max_data_dim)/#[CNode]146
+    %3 : Func = Primitive::resolve{prim_type=1}(NameSpace::CommonOPS, getitem)    #(ExternalType, ExternalType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(363)/    data, tuple_index = _expand_data_dims(data, tuple_index)/#[CNode]147
+    %4 : $(tensor_index_by_tuple.37):Func = Primitive::resolve{prim_type=1}(NameSpace::SymbolStr, _expand_data_dims)    #(ExternalType, ExternalType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(363)/    data, tuple_index = _expand_data_dims(data, tuple_index)/#[CNode]148
+    %5 : $(tensor_index_by_tuple.37):Func = Primitive::resolve{prim_type=1}(NameSpace::SymbolStr, _transform_ellipsis_to_slice)    #(ExternalType, ExternalType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(362)/    tuple_index = _transform_ellipsis_to_slice(data, tuple_index, op_name)/#[CNode]149
+    %6 : String = Primitive::getattr{prim_type=1}(%1, "TENSOR_GETITEM")    #(ExternalType, String) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(361)/    op_name = const_utils.TENSOR_GETITEM/#op_name
+    %7 : Tuple[Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone]*4,Slice[Int64 : Int64 : kMetaTypeNone]] = %5(%para375, %para376, %6)    #(Tensor(F32)[1, 13, 13, 3, 17], Tuple[Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone]*4,Slice[Int64 : Int64 : kMetaTypeNone]], String) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(362)/    tuple_index = _transform_ellipsis_to_slice(data, tuple_index, op_name)/#tuple_index
+
+#------------------------> 8
+    %8 = %4(%para375, %7)    #(Tensor(F32)[1, 13, 13, 3, 17], Tuple[Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone]*4,Slice[Int64 : Int64 : kMetaTypeNone]]) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(363)/    data, tuple_index = _expand_data_dims(data, tuple_index)/#[CNode]150
+    %9 = %3(%8, I64(0))    #(Undefined, I64) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(363)/    data, tuple_index = _expand_data_dims(data, tuple_index)/#data
+    %10 = Primitive::getattr{prim_type=1}(%9, "ndim")    #(Undefined, String) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(366)/    const_utils.judge_data_dim(data.ndim, min_data_dim, max_data_dim)/#[CNode]151
+    %11 = Primitive::resolve{prim_type=1}(NameSpace::CommonOPS, getitem)    #(ExternalType, ExternalType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(365)/    min_data_dim, max_data_dim = 1, 8/#[CNode]152
+    %12 = Primitive::resolve{prim_type=1}(NameSpace::CommonOPS, MakeTuple)    #(ExternalType, ExternalType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(365)/    min_data_dim, max_data_dim = 1, 8/#[CNode]153
+    %13 = %12(I64(1), I64(8))    #(I64, I64) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(365)/    min_data_dim, max_data_dim = 1, 8/#[CNode]154
+    %14 = %11(%13, I64(0))    #(Undefined, I64) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(365)/    min_data_dim, max_data_dim = 1, 8/#min_data_dim
+    %15 = %11(%13, I64(1))    #(Undefined, I64) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(365)/    min_data_dim, max_data_dim = 1, 8/#max_data_dim
+    %16 = %2(%10, %14, %15)    #(Undefined, Undefined, Undefined) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(366)/    const_utils.judge_data_dim(data.ndim, min_data_dim, max_data_dim)/#[CNode]155
+    %17 = Primitive::stop_gradient{prim_type=1}(%16)    #(Undefined) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(356)/def tensor_index_by_tuple(data, tuple_index):/#[CNode]156
+    %18 = Primitive::resolve{prim_type=1}(NameSpace::CommonOPS, bool_)    #(ExternalType, ExternalType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(370)/    if contain_type == const_utils.ALL_BASIC:/#[CNode]157
+    %19 = Primitive::resolve{prim_type=1}(NameSpace::Ast, eq)    #(ExternalType, ExternalType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(0)/#[CNode]158
+    %20 = Primitive::getattr{prim_type=1}(%1, "tuple_index_type_cnt")    #(ExternalType, String) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(369)/    contain_type = const_utils.tuple_index_type_cnt(indexes_types, op_name)/#[CNode]159
+    %21 = $(tensor_index_by_tuple.37):Primitive::resolve{prim_type=1}(NameSpace::SymbolStr, hyper_map)    #(ExternalType, ExternalType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(368)/    indexes_types = hyper_map(F.typeof, tuple_index)/#[CNode]160
+    %22 = $(tensor_index_by_tuple.37):Primitive::resolve{prim_type=1}(NameSpace::SymbolStr, F)    #(ExternalType, ExternalType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(368)/    indexes_types = hyper_map(F.typeof, tuple_index)/#[CNode]161
+    %23 = Primitive::getattr{prim_type=1}(%22, "typeof")    #(Undefined, String) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(368)/    indexes_types = hyper_map(F.typeof, tuple_index)/#[CNode]162
+    %24 = %3(%8, I64(1))    #(Undefined, I64) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(363)/    data, tuple_index = _expand_data_dims(data, tuple_index)/#tuple_index
+    %25 = %21(%23, %24)    #(Undefined, Undefined) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(368)/    indexes_types = hyper_map(F.typeof, tuple_index)/#indexes_types
+    %26 = %20(%25, %6)    #(Undefined, String) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(369)/    contain_type = const_utils.tuple_index_type_cnt(indexes_types, op_name)/#contain_type
+    %27 = Primitive::getattr{prim_type=1}(%1, "ALL_BASIC")    #(ExternalType, String) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(370)/    if contain_type == const_utils.ALL_BASIC:/#[CNode]163
+    %28 = %19(%26, %27)    #(Undefined, Undefined) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(370)/    if contain_type == const_utils.ALL_BASIC:/#[CNode]157
+    %29 = %18(%28)    #(Undefined) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(370)/    if contain_type == const_utils.ALL_BASIC:/#[CNode]157
+    %30 = Primitive::Switch{prim_type=1}(%29, FuncGraph::fg_164, FuncGraph::fg_165)    #(Undefined, Undefined, Undefined)    # fg_164=✓↓tensor_index_by_tuple.164, fg_165=✗↓tensor_index_by_tuple.165 #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(370)/    if contain_type == const_utils.ALL_BASIC:/#[CNode]166
+    %31 = %30() #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(370)/    if contain_type == const_utils.ALL_BASIC:/#[CNode]167
+    %32 = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%31, %17)    #(Undefined, Undefined) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(356)/def tensor_index_by_tuple(data, tuple_index):/#[CNode]168
+    Primitive::Return{prim_type=1}(%32)    #(Undefined) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(356)/def tensor_index_by_tuple(data, tuple_index):/#[CNode]169
+}
+# order:
+#   1: ↓tensor_index_by_tuple.39:[CNode]170{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> CommonOPS, [2]: ValueNode<Symbol> MakeTuple}
+#   2: ↓tensor_index_by_tuple.39:[CNode]171{[0]: [CNode]170, [1]: data, [2]: tuple_index, [3]: op_name}
+#   3: ↓tensor_index_by_tuple.39:tuple_index{[0]: [CNode]149, [1]: data, [2]: tuple_index, [3]: op_name}
+#   4: ↓tensor_index_by_tuple.39:[CNode]172{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> CommonOPS, [2]: ValueNode<Symbol> MakeTuple}
+#   5: ↓tensor_index_by_tuple.39:[CNode]173{[0]: [CNode]172, [1]: data, [2]: tuple_index}
+#   6: ↓tensor_index_by_tuple.39:[CNode]150{[0]: [CNode]148, [1]: data, [2]: tuple_index}
+#   7: ↓tensor_index_by_tuple.39:data{[0]: [CNode]147, [1]: [CNode]150, [2]: ValueNode<Int64Imm> 0}
+#   8: ↓tensor_index_by_tuple.39:tuple_index{[0]: [CNode]147, [1]: [CNode]150, [2]: ValueNode<Int64Imm> 1}
+#   9: ↓tensor_index_by_tuple.39:[CNode]154{[0]: [CNode]153, [1]: ValueNode<Int64Imm> 1, [2]: ValueNode<Int64Imm> 8}
+#  10: ↓tensor_index_by_tuple.39:min_data_dim{[0]: [CNode]152, [1]: [CNode]154, [2]: ValueNode<Int64Imm> 0}
+#  11: ↓tensor_index_by_tuple.39:max_data_dim{[0]: [CNode]152, [1]: [CNode]154, [2]: ValueNode<Int64Imm> 1}
+#  12: ↓tensor_index_by_tuple.39:[CNode]151{[0]: ValueNode<Primitive> getattr, [1]: data, [2]: ValueNode<StringImm> ndim}
+#  13: ↓tensor_index_by_tuple.39:[CNode]174{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> CommonOPS, [2]: ValueNode<Symbol> MakeTuple}
+#  14: ↓tensor_index_by_tuple.39:[CNode]175{[0]: [CNode]174, [1]: [CNode]151, [2]: min_data_dim, [3]: max_data_dim}
+#  15: ↓tensor_index_by_tuple.39:[CNode]155{[0]: [CNode]146, [1]: [CNode]151, [2]: min_data_dim, [3]: max_data_dim}
+#  16: ↓tensor_index_by_tuple.39:[CNode]176{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> CommonOPS, [2]: ValueNode<Symbol> MakeTuple}
+#  17: ↓tensor_index_by_tuple.39:[CNode]177{[0]: [CNode]176, [1]: [CNode]162, [2]: tuple_index}
+#  18: ↓tensor_index_by_tuple.39:indexes_types{[0]: [CNode]160, [1]: [CNode]162, [2]: tuple_index}
+#  19: ↓tensor_index_by_tuple.39:[CNode]178{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> CommonOPS, [2]: ValueNode<Symbol> MakeTuple}
+#  20: ↓tensor_index_by_tuple.39:[CNode]179{[0]: [CNode]178, [1]: indexes_types, [2]: op_name}
+#  21: ↓tensor_index_by_tuple.39:contain_type{[0]: [CNode]159, [1]: indexes_types, [2]: op_name}
+#  22: ↓tensor_index_by_tuple.39:[CNode]157{[0]: [CNode]158, [1]: contain_type, [2]: [CNode]163}
+#  23: ↓tensor_index_by_tuple.39:[CNode]157{[0]: [CNode]157, [1]: [CNode]157}
+#  24: ↓tensor_index_by_tuple.39:[CNode]166{[0]: ValueNode<Primitive> Switch, [1]: [CNode]157, [2]: ValueNode<FuncGraph> ✓↓tensor_index_by_tuple.164, [3]: ValueNode<FuncGraph> ✗↓tensor_index_by_tuple.165}
+#  25: ↓tensor_index_by_tuple.39:[CNode]167{[0]: [CNode]166}
+#  26: ↓tensor_index_by_tuple.39:[CNode]180{[0]: ValueNode<Primitive> Return, [1]: [CNode]167}
+#  27: ↓tensor_index_by_tuple.39:[CNode]169{[0]: ValueNode<Primitive> Return, [1]: [CNode]168}
+
+
+# [No.10] _expand_data_dims.40
+# In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(262)/def _expand_data_dims(data, tuple_index):/
+funcgraph fg_40(
+        %para377 : Tensor(F32)[1, 13, 13, 3, 17]    # data
+        , %para378 : Tuple[Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone]*4,Slice[Int64 : Int64 : kMetaTypeNone]]    # tuple_index
+    ) {
+    %1 : Func = Primitive::resolve{prim_type=1}(NameSpace::SymbolStr, len)    #(ExternalType, ExternalType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(266)/    for i, (index, index_type) in enumerate(zip(tuple_index, indexes_types)):/#[CNode]181
+    %2 : Func = Primitive::resolve{prim_type=1}(NameSpace::SymbolStr, enumerate)    #(ExternalType, ExternalType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(266)/    for i, (index, index_type) in enumerate(zip(tuple_index, indexes_types)):/#[CNode]182
+    %3 : Func = Primitive::resolve{prim_type=1}(NameSpace::SymbolStr, zip)    #(ExternalType, ExternalType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(266)/    for i, (index, index_type) in enumerate(zip(tuple_index, indexes_types)):/#[CNode]183
+    %4 : Func = Primitive::resolve{prim_type=1}(NameSpace::SymbolStr, hyper_map)    #(ExternalType, ExternalType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(264)/    indexes_types = hyper_map(F.typeof, tuple_index)/#[CNode]184
+    %5 : ExternalType = Primitive::resolve{prim_type=1}(NameSpace::SymbolStr, F)    #(ExternalType, ExternalType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(264)/    indexes_types = hyper_map(F.typeof, tuple_index)/#[CNode]185
+    %6 : Func = Primitive::getattr{prim_type=1}(%5, "typeof")    #(ExternalType, String) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(264)/    indexes_types = hyper_map(F.typeof, tuple_index)/#[CNode]186
+    %7 : Tuple[TypeType*5] = %4(%6, %para378)    #(Func, Tuple[Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone]*4,Slice[Int64 : Int64 : kMetaTypeNone]]) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(264)/    indexes_types = hyper_map(F.typeof, tuple_index)/#indexes_types
+    %8 : Tuple[Tuple[Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone],TypeType]*4,Tuple[Slice[Int64 : Int64 : kMetaTypeNone],TypeType]] = %3(%para378, %7)    #(Tuple[Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone]*4,Slice[Int64 : Int64 : kMetaTypeNone]], Tuple[TypeType*5]) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(266)/    for i, (index, index_type) in enumerate(zip(tuple_index, indexes_types)):/#[CNode]187
+    %9 : Tuple[Tuple[I64,Tuple[Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone],TypeType]]*4,Tuple[I64,Tuple[Slice[Int64 : Int64 : kMetaTypeNone],TypeType]]] = %2(%8)    #(Tuple[Tuple[Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone],TypeType]*4,Tuple[Slice[Int64 : Int64 : kMetaTypeNone],TypeType]]) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(266)/    for i, (index, index_type) in enumerate(zip(tuple_index, indexes_types)):/#[CNode]188
+    %10 : I64 = %1(%9)    #(Tuple[Tuple[I64,Tuple[Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone],TypeType]]*4,Tuple[I64,Tuple[Slice[Int64 : Int64 : kMetaTypeNone],TypeType]]]) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(266)/    for i, (index, index_type) in enumerate(zip(tuple_index, indexes_types)):/#[CNode]189
+    %11 : Bool = Primitive::scalar_lt{prim_type=1}(%10, I64(9223372036854775807))    #(I64, I64) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(266)/    for i, (index, index_type) in enumerate(zip(tuple_index, indexes_types)):/#[CNode]190
+    %12 : Func = Primitive::Switch{prim_type=1}(%11, FuncGraph::fg_41, FuncGraph::fg_191)    #(Bool, Func, Func)    # fg_41=✓_expand_data_dims.41, fg_191=✗_expand_data_dims.191 #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(266)/    for i, (index, index_type) in enumerate(zip(tuple_index, indexes_types)):/#[CNode]192
+
+#------------------------> 9
+    %13 = %12() #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(266)/    for i, (index, index_type) in enumerate(zip(tuple_index, indexes_types)):/#[CNode]193
+    Primitive::Return{prim_type=1}(%13)    #(Undefined) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(266)/    for i, (index, index_type) in enumerate(zip(tuple_index, indexes_types)):/#[CNode]194
+}
+# order:
+#   1: _expand_data_dims.40:[CNode]195{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> CommonOPS, [2]: ValueNode<Symbol> MakeTuple}
+#   2: _expand_data_dims.40:[CNode]196{[0]: [CNode]195, [1]: [CNode]186, [2]: tuple_index}
+#   3: _expand_data_dims.40:indexes_types{[0]: [CNode]184, [1]: [CNode]186, [2]: tuple_index}
+#   4: _expand_data_dims.40:[CNode]197{[0]: [CNode]198, [1]: ValueNode<ValueTuple> (), [2]: ValueNode<ValueTuple> ()}
+#   5: _expand_data_dims.40:expand_positions{[0]: [CNode]199, [1]: [CNode]197, [2]: ValueNode<Int64Imm> 0}
+#   6: _expand_data_dims.40:tuple_index_new{[0]: [CNode]199, [1]: [CNode]197, [2]: ValueNode<Int64Imm> 1}
+#   7: _expand_data_dims.40:[CNode]200{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> CommonOPS, [2]: ValueNode<Symbol> MakeTuple}
+#   8: _expand_data_dims.40:[CNode]201{[0]: [CNode]200, [1]: tuple_index, [2]: indexes_types}
+#   9: _expand_data_dims.40:[CNode]187{[0]: [CNode]183, [1]: tuple_index, [2]: indexes_types}
+#  10: _expand_data_dims.40:[CNode]202{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> CommonOPS, [2]: ValueNode<Symbol> MakeTuple}
+#  11: _expand_data_dims.40:[CNode]203{[0]: [CNode]202, [1]: [CNode]187}
+#  12: _expand_data_dims.40:[CNode]188{[0]: [CNode]182, [1]: [CNode]187}
+#  13: _expand_data_dims.40:[CNode]189{[0]: [CNode]181, [1]: [CNode]188}
+#  14: _expand_data_dims.40:[CNode]190{[0]: ValueNode<Primitive> scalar_lt, [1]: [CNode]189, [2]: ValueNode<Int64Imm> 9223372036854775807}
+#  15: _expand_data_dims.40:[CNode]192{[0]: ValueNode<Primitive> Switch, [1]: [CNode]190, [2]: ValueNode<FuncGraph> ✓_expand_data_dims.41, [3]: ValueNode<FuncGraph> ✗_expand_data_dims.191}
+#  16: _expand_data_dims.40:[CNode]193{[0]: [CNode]192}
+#  17: _expand_data_dims.40:[CNode]194{[0]: ValueNode<Primitive> Return, [1]: [CNode]193}
+
+
+# [No.11] ✓_expand_data_dims.41
+# In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(266)/    for i, (index, index_type) in enumerate(zip(tuple_index, indexes_types)):/
+funcgraph fg_41[fg_40](
+) {
+    %1 : Func = Primitive::resolve{prim_type=1}(NameSpace::CommonOPS, iter)    #(ExternalType, ExternalType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(266)/    for i, (index, index_type) in enumerate(zip(tuple_index, indexes_types)):/#[CNode]204
+    %2 : $(_expand_data_dims.40):Func = Primitive::resolve{prim_type=1}(NameSpace::SymbolStr, enumerate)    #(ExternalType, ExternalType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(266)/    for i, (index, index_type) in enumerate(zip(tuple_index, indexes_types)):/#[CNode]182
+    %3 : $(_expand_data_dims.40):Func = Primitive::resolve{prim_type=1}(NameSpace::SymbolStr, zip)    #(ExternalType, ExternalType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(266)/    for i, (index, index_type) in enumerate(zip(tuple_index, indexes_types)):/#[CNode]183
+    %4 : $(_expand_data_dims.40):Func = Primitive::resolve{prim_type=1}(NameSpace::SymbolStr, hyper_map)    #(ExternalType, ExternalType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(264)/    indexes_types = hyper_map(F.typeof, tuple_index)/#[CNode]184
+    %5 : $(_expand_data_dims.40):ExternalType = Primitive::resolve{prim_type=1}(NameSpace::SymbolStr, F)    #(ExternalType, ExternalType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(264)/    indexes_types = hyper_map(F.typeof, tuple_index)/#[CNode]185
+    %6 : $(_expand_data_dims.40):Func = Primitive::getattr{prim_type=1}(%5, "typeof")    #(ExternalType, String) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(264)/    indexes_types = hyper_map(F.typeof, tuple_index)/#[CNode]186
+    %7 : $(_expand_data_dims.40):Tuple[TypeType*5] = %4(%6, %para378)    #(Func, Tuple[Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone]*4,Slice[Int64 : Int64 : kMetaTypeNone]]) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(264)/    indexes_types = hyper_map(F.typeof, tuple_index)/#indexes_types
+    %8 : Tuple[Tuple[Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone],TypeType]*4,Tuple[Slice[Int64 : Int64 : kMetaTypeNone],TypeType]] = %3(%para378, %7)    #(Tuple[Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone]*4,Slice[Int64 : Int64 : kMetaTypeNone]], Tuple[TypeType*5]) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(266)/    for i, (index, index_type) in enumerate(zip(tuple_index, indexes_types)):/#[CNode]205
+    %9 : Tuple[Tuple[I64,Tuple[Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone],TypeType]]*4,Tuple[I64,Tuple[Slice[Int64 : Int64 : kMetaTypeNone],TypeType]]] = %2(%8)    #(Tuple[Tuple[Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone],TypeType]*4,Tuple[Slice[Int64 : Int64 : kMetaTypeNone],TypeType]]) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(266)/    for i, (index, index_type) in enumerate(zip(tuple_index, indexes_types)):/#[CNode]206
+    %10 : Tuple[Tuple[I64,Tuple[Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone],TypeType]]*4,Tuple[I64,Tuple[Slice[Int64 : Int64 : kMetaTypeNone],TypeType]]] = %1(%9)    #(Tuple[Tuple[I64,Tuple[Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone],TypeType]]*4,Tuple[I64,Tuple[Slice[Int64 : Int64 : kMetaTypeNone],TypeType]]]) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(266)/    for i, (index, index_type) in enumerate(zip(tuple_index, indexes_types)):/#@[CNode]43
+    %11 : $(_expand_data_dims.40):ExternalType = Primitive::resolve{prim_type=1}(NameSpace::SymbolStr, const_utils)    #(ExternalType, ExternalType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(266)/    for i, (index, index_type) in enumerate(zip(tuple_index, indexes_types)):/#[CNode]207
+    %12 : $(_expand_data_dims.40):ExternalType = Primitive::resolve{prim_type=1}(NameSpace::SymbolStr, mstype)    #(ExternalType, ExternalType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(266)/    for i, (index, index_type) in enumerate(zip(tuple_index, indexes_types)):/#[CNode]208
+    %13 : $(_expand_data_dims.40):Func = Primitive::resolve{prim_type=1}(NameSpace::CommonOPS, getitem)    #(ExternalType, ExternalType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(265)/    expand_positions, tuple_index_new = (), ()/#[CNode]199
+    %14 : $(_expand_data_dims.40):Func = Primitive::resolve{prim_type=1}(NameSpace::CommonOPS, MakeTuple)    #(ExternalType, ExternalType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(265)/    expand_positions, tuple_index_new = (), ()/#[CNode]198
+    %15 : $(_expand_data_dims.40):Tuple[Tuple[]*2] = %14((), ())    #(Tuple[], Tuple[]) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(265)/    expand_positions, tuple_index_new = (), ()/#[CNode]197
+    %16 : $(_expand_data_dims.40):Tuple[] = %13(%15, I64(1))    #(Tuple[Tuple[]*2], I64) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(265)/    expand_positions, tuple_index_new = (), ()/#tuple_index_new
+    %17 : $(_expand_data_dims.40):Tuple[] = %13(%15, I64(0))    #(Tuple[Tuple[]*2], I64) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(265)/    expand_positions, tuple_index_new = (), ()/#expand_positions
+
+#------------------------> 10
+    %18 = FuncGraph::fg_42(%10, %11, %12, %16, %17, %5, %para377)    #(Tuple[Tuple[I64,Tuple[Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone],TypeType]]*4,Tuple[I64,Tuple[Slice[Int64 : Int64 : kMetaTypeNone],TypeType]]], ExternalType, ExternalType, Tuple[], Tuple[], ExternalType, Tensor(F32)[1, 13, 13, 3, 17])    # fg_42=⤾✓_expand_data_dims.42 #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(266)/    for i, (index, index_type) in enumerate(zip(tuple_index, indexes_types)):/#[CNode]209
+    Primitive::Return{prim_type=1}(%18)    #(Undefined) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(266)/    for i, (index, index_type) in enumerate(zip(tuple_index, indexes_types)):/#[CNode]210
+}
+# order:
+#   1: ✓_expand_data_dims.41:[CNode]211{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> CommonOPS, [2]: ValueNode<Symbol> MakeTuple}
+#   2: ✓_expand_data_dims.41:[CNode]212{[0]: [CNode]211, [1]: tuple_index, [2]: indexes_types}
+#   3: ✓_expand_data_dims.41:[CNode]205{[0]: [CNode]183, [1]: tuple_index, [2]: indexes_types}
+#   4: ✓_expand_data_dims.41:[CNode]213{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> CommonOPS, [2]: ValueNode<Symbol> MakeTuple}
+#   5: ✓_expand_data_dims.41:[CNode]214{[0]: [CNode]213, [1]: [CNode]205}
+#   6: ✓_expand_data_dims.41:[CNode]206{[0]: [CNode]182, [1]: [CNode]205}
+#   7: ✓_expand_data_dims.41:@[CNode]43{[0]: [CNode]204, [1]: [CNode]206}
+#   8: ✓_expand_data_dims.41:[CNode]209{[0]: ValueNode<FuncGraph> ⤾✓_expand_data_dims.42, [1]: @[CNode]43, [2]: [CNode]207, [3]: [CNode]208, [4]: tuple_index_new, [5]: expand_positions, [6]: [CNode]185, [7]: data}
+#   9: ✓_expand_data_dims.41:[CNode]210{[0]: ValueNode<Primitive> Return, [1]: [CNode]209}
+
+
+# [No.12] ⤾✓_expand_data_dims.42
+# In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(266)/    for i, (index, index_type) in enumerate(zip(tuple_index, indexes_types)):/
+funcgraph fg_42[fg_41](
+        %para379 : Tuple[Tuple[I64,Tuple[Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone],TypeType]]*4,Tuple[I64,Tuple[Slice[Int64 : Int64 : kMetaTypeNone],TypeType]]]    # @[CNode]43
+        , %para380 : ExternalType    # Φconst_utils
+        , %para381 : ExternalType    # Φmstype
+        , %para382 : Tuple[]    # Φtuple_index_new
+        , %para383 : Tuple[]    # Φexpand_positions
+        , %para384 : ExternalType    # ΦF
+        , %para385 : Tensor(F32)[1, 13, 13, 3, 17]    # Φdata
+    ) {
+    %1 : $(✓_expand_data_dims.41):Func = Primitive::resolve{prim_type=1}(NameSpace::CommonOPS, hasnext)    #(ExternalType, ExternalType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(266)/    for i, (index, index_type) in enumerate(zip(tuple_index, indexes_types)):/#[CNode]215
+    %2 : Bool = %1(%para379)    #(Tuple[Tuple[I64,Tuple[Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone],TypeType]]*4,Tuple[I64,Tuple[Slice[Int64 : Int64 : kMetaTypeNone],TypeType]]]) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(266)/    for i, (index, index_type) in enumerate(zip(tuple_index, indexes_types)):/#[CNode]216
+    %3 : Func = Primitive::Switch{prim_type=1}(%2, FuncGraph::fg_44, FuncGraph::fg_217)    #(Bool, Func, Func)    # fg_44=⥁✓_expand_data_dims.44, fg_217=↓✓_expand_data_dims.217 #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(266)/    for i, (index, index_type) in enumerate(zip(tuple_index, indexes_types)):/#[CNode]218
+
+#------------------------> 11
+    %4 = %3() #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(266)/    for i, (index, index_type) in enumerate(zip(tuple_index, indexes_types)):/#[CNode]219
+    Primitive::Return{prim_type=1}(%4)    #(Undefined) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(266)/    for i, (index, index_type) in enumerate(zip(tuple_index, indexes_types)):/#[CNode]220
+}
+# order:
+#   1: ⤾✓_expand_data_dims.42:[CNode]216{[0]: [CNode]215, [1]: @[CNode]43}
+#   2: ⤾✓_expand_data_dims.42:[CNode]218{[0]: ValueNode<Primitive> Switch, [1]: [CNode]216, [2]: ValueNode<FuncGraph> ⥁✓_expand_data_dims.44, [3]: ValueNode<FuncGraph> ↓✓_expand_data_dims.217}
+#   3: ⤾✓_expand_data_dims.42:[CNode]219{[0]: [CNode]218}
+#   4: ⤾✓_expand_data_dims.42:[CNode]220{[0]: ValueNode<Primitive> Return, [1]: [CNode]219}
+
+
+# [No.13] ⥁✓_expand_data_dims.44
+# In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(266)/    for i, (index, index_type) in enumerate(zip(tuple_index, indexes_types)):/
+funcgraph fg_44[fg_42](
+) {
+    %1 : Func = Primitive::resolve{prim_type=1}(NameSpace::CommonOPS, bool_)    #(ExternalType, ExternalType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(267)/        if const_utils.judge_index_type(index_type, mstype.type_none):/#[CNode]221
+    %2 : Func = Primitive::getattr{prim_type=1}(%para380, "judge_index_type")    #(ExternalType, String) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(267)/        if const_utils.judge_index_type(index_type, mstype.type_none):/#[CNode]222
+    %3 : Func = Primitive::resolve{prim_type=1}(NameSpace::CommonOPS, getitem)    #(ExternalType, ExternalType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(266)/    for i, (index, index_type) in enumerate(zip(tuple_index, indexes_types)):/#[CNode]223
+    %4 : Func = Primitive::resolve{prim_type=1}(NameSpace::CommonOPS, getitem)    #(ExternalType, ExternalType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(266)/    for i, (index, index_type) in enumerate(zip(tuple_index, indexes_types)):/#[CNode]224
+    %5 : $(✓_expand_data_dims.41):Func = Primitive::resolve{prim_type=1}(NameSpace::CommonOPS, getitem)    #(ExternalType, ExternalType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(266)/    for i, (index, index_type) in enumerate(zip(tuple_index, indexes_types)):/#[CNode]225
+    %6 : $(✓_expand_data_dims.41):Func = Primitive::resolve{prim_type=1}(NameSpace::CommonOPS, next)    #(ExternalType, ExternalType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(266)/    for i, (index, index_type) in enumerate(zip(tuple_index, indexes_types)):/#[CNode]226
+    %7 : Tuple[Tuple[I64,Tuple[Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone],TypeType]],Tuple[Tuple[I64,Tuple[Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone],TypeType]]*3,Tuple[I64,Tuple[Slice[Int64 : Int64 : kMetaTypeNone],TypeType]]]] = %6(%para379)    #(Tuple[Tuple[I64,Tuple[Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone],TypeType]]*4,Tuple[I64,Tuple[Slice[Int64 : Int64 : kMetaTypeNone],TypeType]]]) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(266)/    for i, (index, index_type) in enumerate(zip(tuple_index, indexes_types)):/#[CNode]227
+    %8 : Tuple[I64,Tuple[Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone],TypeType]] = %5(%7, I64(0))    #(Tuple[Tuple[I64,Tuple[Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone],TypeType]],Tuple[Tuple[I64,Tuple[Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone],TypeType]]*3,Tuple[I64,Tuple[Slice[Int64 : Int64 : kMetaTypeNone],TypeType]]]], I64) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(266)/    for i, (index, index_type) in enumerate(zip(tuple_index, indexes_types)):/#[CNode]43
+
+#------------------------> 12
+    %9 = %4(%8, I64(1))    #(Tuple[I64,Tuple[Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone],TypeType]], I64) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(266)/    for i, (index, index_type) in enumerate(zip(tuple_index, indexes_types)):/#[CNode]228
+    %10 = %3(%9, I64(1))    #(Undefined, I64) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(266)/    for i, (index, index_type) in enumerate(zip(tuple_index, indexes_types)):/#index_type
+    %11 = Primitive::getattr{prim_type=1}(%para381, "type_none")    #(ExternalType, String) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(267)/        if const_utils.judge_index_type(index_type, mstype.type_none):/#[CNode]229
+    %12 = %2(%10, %11)    #(Undefined, Undefined) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(267)/        if const_utils.judge_index_type(index_type, mstype.type_none):/#[CNode]221
+    %13 = %1(%12)    #(Undefined) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(267)/        if const_utils.judge_index_type(index_type, mstype.type_none):/#[CNode]221
+    %14 = Primitive::Switch{prim_type=1}(%13, FuncGraph::fg_230, FuncGraph::fg_231)    #(Undefined, Undefined, Undefined)    # fg_230=✓⥁✓_expand_data_dims.230, fg_231=✗⥁✓_expand_data_dims.231 #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(267)/        if const_utils.judge_index_type(index_type, mstype.type_none):/#[CNode]232
+    %15 = %14() #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(267)/        if const_utils.judge_index_type(index_type, mstype.type_none):/#[CNode]233
+    Primitive::Return{prim_type=1}(%15)    #(Undefined) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(267)/        if const_utils.judge_index_type(index_type, mstype.type_none):/#[CNode]234
+}
+# order:
+#   1: ⥁✓_expand_data_dims.44:[CNode]227{[0]: [CNode]226, [1]: @[CNode]43}
+#   2: ⥁✓_expand_data_dims.44:[CNode]43{[0]: [CNode]225, [1]: [CNode]227, [2]: ValueNode<Int64Imm> 0}
+#   3: ⥁✓_expand_data_dims.44:@[CNode]43{[0]: [CNode]225, [1]: [CNode]227, [2]: ValueNode<Int64Imm> 1}
+#   4: ⥁✓_expand_data_dims.44:Φi{[0]: [CNode]224, [1]: [CNode]43, [2]: ValueNode<Int64Imm> 0}
+#   5: ⥁✓_expand_data_dims.44:[CNode]228{[0]: [CNode]224, [1]: [CNode]43, [2]: ValueNode<Int64Imm> 1}
+#   6: ⥁✓_expand_data_dims.44:index{[0]: [CNode]223, [1]: [CNode]228, [2]: ValueNode<Int64Imm> 0}
+#   7: ⥁✓_expand_data_dims.44:index_type{[0]: [CNode]223, [1]: [CNode]228, [2]: ValueNode<Int64Imm> 1}
+#   8: ⥁✓_expand_data_dims.44:[CNode]235{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> CommonOPS, [2]: ValueNode<Symbol> MakeTuple}
+#   9: ⥁✓_expand_data_dims.44:[CNode]236{[0]: [CNode]235, [1]: index_type, [2]: [CNode]229}
+#  10: ⥁✓_expand_data_dims.44:[CNode]221{[0]: [CNode]222, [1]: index_type, [2]: [CNode]229}
+#  11: ⥁✓_expand_data_dims.44:[CNode]221{[0]: [CNode]221, [1]: [CNode]221}
+#  12: ⥁✓_expand_data_dims.44:[CNode]232{[0]: ValueNode<Primitive> Switch, [1]: [CNode]221, [2]: ValueNode<FuncGraph> ✓⥁✓_expand_data_dims.230, [3]: ValueNode<FuncGraph> ✗⥁✓_expand_data_dims.231}
+#  13: ⥁✓_expand_data_dims.44:[CNode]233{[0]: [CNode]232}
+#  14: ⥁✓_expand_data_dims.44:[CNode]234{[0]: ValueNode<Primitive> Return, [1]: [CNode]233}
+
+
+# [No.14] _tuple_getitem_by_number.45
+# In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/getitem_impl.py(77)/def _tuple_getitem_by_number(data, number_index):/
+funcgraph fg_45(
+        %para386 : Tuple[I64,Tuple[Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone],TypeType]]    # data
+        , %para387 : I64    # number_index
+    ) {
+
+#------------------------> 13
+    %1 = Primitive::resolve{prim_type=1}(NameSpace::SymbolStr, F)    #(ExternalType, ExternalType) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/getitem_impl.py(88)/    return F.tuple_getitem(data, number_index)/#[CNode]237
+    %2 = Primitive::getattr{prim_type=1}(%1, "tuple_getitem")    #(Undefined, String) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/getitem_impl.py(88)/    return F.tuple_getitem(data, number_index)/#[CNode]238
+    %3 = %2(%para386, %para387)    #(Tuple[I64,Tuple[Slice[kMetaTypeNone : kMetaTypeNone : kMetaTypeNone],TypeType]], I64) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/getitem_impl.py(88)/    return F.tuple_getitem(data, number_index)/#[CNode]239
+    Primitive::Return{prim_type=1}(%3)    #(Undefined) #scope: Default/detect_1-DetectionBlock
+      # In file /home/whitewings/miniconda3/envs/mmm/lib/python3.7/site-packages/mindspore/ops/composite/multitype_ops/getitem_impl.py(88)/    return F.tuple_getitem(data, number_index)/#[CNode]240
+}
+# order:
+#   1: _tuple_getitem_by_number.45:[CNode]237{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> SymbolStr, [2]: ValueNode<Symbol> F}
+#   2: _tuple_getitem_by_number.45:[CNode]238{[0]: ValueNode<Primitive> getattr, [1]: [CNode]237, [2]: ValueNode<StringImm> tuple_getitem}
+#   3: _tuple_getitem_by_number.241:[CNode]242{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> CommonOPS, [2]: ValueNode<Symbol> MakeTuple}
+#   4: _tuple_getitem_by_number.241:[CNode]243{[0]: [CNode]242, [1]: data, [2]: number_index}
+#   5: _tuple_getitem_by_number.45:[CNode]239{[0]: [CNode]238, [1]: data, [2]: number_index}
+#   6: _tuple_getitem_by_number.45:[CNode]240{[0]: ValueNode<Primitive> Return, [1]: [CNode]239}
+
+
+#===============================================================================
+# num of function graphs in stack: 14/16 (Ignored 2 internal frames).
