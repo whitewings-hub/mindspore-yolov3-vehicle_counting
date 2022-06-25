@@ -39,14 +39,18 @@ python predict.py --image_path ./imgs/0000077_00922_d_0000003.jpg --pretrained .
 ```
 python detect_img.py
 ```
-需要修改detect_img.py文件中的pretrained_path为训练的.ckpt文件路径  
+需要修改detect_img.py文件中的pretrained_path为ckpt文件路径  
 需要修改detect_img.py文件中最后一行对应检测图片的路径
 ```
 python window.py
 ```
+需要修改window.py文件中的pretrained_path为ckpt文件路径
 
 ## 基于视频的车辆检测与计数
 
 ```
 python detect_vid.py
 ```
+需要修改detect_vid.py文件中的pretrained_path为ckpt文件路径  
+需要在cap = cv2.VideoCapture()中添加视频路径  
+cap = cv2.VideoCapture(0)则为检测电脑摄像头的实时视频
