@@ -5,6 +5,7 @@
 VisDrone数据集下载 [http://aiskyeye.com/download/object-detection-2/]
 
 ## 数据集处理
+
 将原始VisDrone数据集转换为coco格式，然后存放在本地目录
 
 ```
@@ -12,9 +13,14 @@ python VisDrone2coco.py
 ```
 
 ## 环境配置
+
 Ubuntu 18.04  
 python 3.7.5  
 mindspore-gpu 1.5.2
+
+## 预训练权重
+
+预训练权重获取参考[https://gitee.com/mindspore/models/blob/r1.5/official/cv/yolov3_darknet53/README_CN.md]
 
 ## 模型训练
 
