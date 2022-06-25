@@ -1,6 +1,9 @@
+# 基于MindSpore YOLOv3-Darknet53的车辆检测与计数实现
+
 ## 数据集处理
 
-将原始visdrone数据集转换为coco格式，然后存放在本地目录
+VisDrone数据集下载 [http://aiskyeye.com/download/object-detection-2/]
+将原始VisDrone数据集转换为coco格式，然后存放在本地目录
 
 ```
 python VisDrone2coco.py
