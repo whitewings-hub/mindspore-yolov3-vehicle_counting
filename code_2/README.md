@@ -12,9 +12,7 @@ python VisDrone2coco.py
 ```
 
 ## 环境配置
-Ubuntu 18.04
-python 3.7.5
-mindspore-gpu 1.5.2
+Ubuntu 18.04      python 3.7.5     mindspore-gpu 1.5.2
 
 ## 模型训练
 
@@ -39,6 +37,7 @@ python predict.py --image_path ./imgs/0000077_00922_d_0000003.jpg --pretrained .
 ```
 python detect_img.py
 ```
+需要修改detect_img.py文件中的pretrained_path为训练的.ckpt文件路径,需要修改detect_img.py文件中最后一行对应检测图片的路径
 ```
 python window.py
 ```
