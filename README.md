@@ -9,4 +9,4 @@ training mindspore yolov3 model and counting vehicle
 
 ## code_2
 
-在 MindSpore YOLOv3-DarkNet53的开源项目 [https://github.com/leonwanghui/ms-yolov3-basketball] 的基础上增加了视频检测、计数
+在 MindSpore YOLOv3-DarkNet53的开源项目 [https://github.com/leonwanghui/ms-yolov3-basketball] 的基础上增加了视频检测以及对检测到的目标进行计数
