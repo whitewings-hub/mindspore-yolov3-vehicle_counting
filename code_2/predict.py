@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ============================================================================
-"""YoloV3 eval."""
+"""YoloV3 predict."""
 import os
 import argparse
 import datetime
