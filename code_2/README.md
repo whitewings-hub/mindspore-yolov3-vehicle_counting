@@ -47,7 +47,7 @@ python predict.py --image_path ./imgs/0000002_00448_d_0000015.jpg --pretrained .
 python detect_img.py
 ```
 需要修改detect_img.py文件中的pretrained_path为ckpt文件路径  
-需要修改detect_img.py文件中最后一行对应检测图片的路径
+需要修改detect_img.py文件中最后一行img_predict(model, "./imgs/test3.jpg")对应检测图片的路径
 运行结果保存在./imgs/output1.jpg
 ```
 python window.py
