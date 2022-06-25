@@ -37,7 +37,7 @@ python eval.py --data_dir ../val/ --pretrained ./models/yolov3-320_517440.ckpt
 ## 模型使用
 
 ```
-python predict.py --image_path ./imgs/0000077_00922_d_0000003.jpg --pretrained ./models/yolov3-320_517440.ckpt
+python predict.py --image_path ./imgs/0000002_00448_d_0000015.jpg --pretrained ./models/yolov3-320_517440.ckpt
 ```
 
 ## 基于图像的车辆检测与计数
